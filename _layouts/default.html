@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
-    <link rel="icon" type="image/jpeg" href="{{ '/assets/starrybitdev.png?v=2' | relative_url }}">
+    <title>{{ page.title | default: "Yuri Bendall | Materials & Mechatronics Engineering" }}</title>
+    <!-- come back to the slogan -->
+    <link rel="icon" type="image/jpeg" href="{{ '/assets/profile pic.jpeg' | relative_url }}">
 
-    <!-- Configuration -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -15,24 +15,20 @@
         }
     </script>
 
-    <!-- 3. THEME LOGIC -->
     <script>
-        // Check local storage or system preference
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
         }
-    
+        
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
             localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
         }
 
         function toggleMenu() {
-            document
-                .getElementById("mobile-menu")
-                .classList.toggle("hidden");
+            document.getElementById("mobile-menu").classList.toggle("hidden");
         }
     </script>
 
@@ -46,105 +42,65 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-200">
 
-    <!-- Sticky Navigation Header -->
     <header class="sticky top-0 z-50 border-b border-zinc-200/80 bg-white/80 dark:border-zinc-800/60 dark:bg-zinc-950/70 backdrop-blur-md">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-    
-            <!-- Logo -->
+            
             <a href="/" class="font-bold text-lg tracking-tight flex items-center gap-1.5">
                 <span class="text-indigo-600 dark:text-indigo-400">✦</span>
-                StarryBit
+                Yuri Bendall
             </a>
     
-            <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-5 text-sm font-medium">
                 <a href="/about/" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">About</a>
-                <a href="/shop/" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">Shop</a>
-                <a href="/blog/" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">Devlogs</a>
-                <a href="/docs/" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">Documentation</a>
+                <a href="/projects/" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">Projects</a>
+                <a href="/assets/Yuri_Bendall_Resume.pdf" target="_blank" class="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">Resume</a>
     
                 <button onclick="toggleTheme()" class="p-1.5 rounded-lg border border-zinc-200 hover:bg-zinc-100 dark:border-zinc-800 dark:hover:bg-zinc-900">
                     🌙
                 </button>
     
-                <a href="https://discord.gg/JwfTkNN8g"
-                   target="_blank"
+                <a href="mailto:your.email@example.com"
                    class="text-zinc-900 bg-zinc-100 hover:bg-zinc-200 dark:text-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 px-3.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 transition-all text-xs code-font">
-                    Join Discord
+                    Contact Me
                 </a>
             </nav>
     
-            <!-- Mobile Hamburger -->
-            <button
-                class="md:hidden p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"
-                onclick="toggleMenu()">
-    
-                <svg xmlns="http://www.w3.org/2000/svg"
-                     class="w-6 h-6"
-                     fill="none"
-                     viewBox="0 0 24 24"
-                     stroke="currentColor">
-    
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6h16M4 12h16M4 18h16"/>
+            <button class="md:hidden p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
-    
             </button>
-    
         </div>
     
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-             class="hidden md:hidden border-t border-zinc-200 dark:border-zinc-800">
-    
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-200 dark:border-zinc-800">
             <nav class="flex flex-col p-4 gap-4 text-sm">
-    
                 <a href="/about/">About</a>
-    
-                <a href="/shop/">Shop</a>
-    
-                <a href="/blog/">Devlogs</a>
-
-                <a href="/docs/">Documentation</a>
-    
-                <button onclick="toggleTheme()" class="text-left">
-                    Toggle Theme
-                </button>
-    
-                <a href="https://discord.gg/JwfTkNN8g"
-                   target="_blank">
-                    Join Discord
-                </a>
-    
+                <a href="/projects/">Projects</a>
+                <a href="/assets/Yuri_Bendall_Resume.pdf" target="_blank">Resume</a>
+                <button onclick="toggleTheme()" class="text-left">Toggle Theme</button>
+                <a href="mailto:your.email@example.com">Contact Me</a>
             </nav>
-    
         </div>
     </header>
 
-    <!-- Main Content Area (Jekyll injects page content here) -->
     <main class="relative z-10 max-w-5xl mx-auto px-6 py-20 w-full flex-1">
         {{ content }}
     </main>
 
-    <!-- Footer -->
    <footer class="relative z-20 border-t border-zinc-200 dark:border-zinc-900 bg-white dark:bg-zinc-950 py-8 text-center text-xs text-zinc-500 dark:text-zinc-600 code-font">
         <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>&copy; 2026 StarryBit</div>
+            <div>&copy; 2026 Yuri Bendall</div>
             <div class="flex gap-6">
-                <a href="https://www.youtube.com/@StarryBit" target="_blank" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">YouTube</a>
-                <a href="https://www.instagram.com/starrybitdev" target="_blank" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">Instagram</a>
-                <a href="https://www.tiktok.com/@starrybitdev" target="_blank" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">TikTok</a>
-                <a href="https://github.com/StarryBit" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">GitHub</a>
-                <a href="https://www.reddit.com/user/StarryBit/" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">Reddit</a>
+                <!-- Add your actual LinkedIn URL -->
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">LinkedIn</a>
+                <a href="https://github.com/yuribendall" target="_blank" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">GitHub</a>
+                <!-- Keep YouTube if you plan to post engineering/project videos -->
+                <a href="https://www.youtube.com/@YourChannel" target="_blank" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">YouTube</a>
             </div>
             <div>
-                <a href="/privacy/" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">Privacy</a>
-                <a href="/terms/" class="hover:text-zinc-800 dark:hover:text-zinc-400 transition-colors">Terms</a>
+                Materials & Mechatronics Engineering
             </div>
         </div>
     </footer>
-
 </body>
 </html>
