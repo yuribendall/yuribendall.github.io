@@ -1118,7 +1118,7 @@
     function renderGlobalIdentity() {
       document.getElementById('navOwnerName').textContent = portfolioData.ownerName;
       document.getElementById('footerOwnerName').textContent = portfolioData.ownerName;
-      document.getElementById('homeHeroHeadline').textContent = portfolioData.heroHeadline;
+      document.getElementById('homeHeroHeadline').innerHTML = portfolioData.heroHeadline;
       document.getElementById('homeHeroSubtext').textContent = portfolioData.heroSubtext;
       document.getElementById('contactEmailText').textContent = portfolioData.ownerEmail;
       document.getElementById('mailtoLinkBtn').href = 'mailto:' + portfolioData.ownerEmail;
