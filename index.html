@@ -108,7 +108,7 @@
 <body class="min-h-screen flex flex-col selection:bg-accent/15 selection:text-accentdark">
 
   <!-- =====================================================================
-       TOP NAVIGATION BAR (Clean, Fluid, Industry-Standard)
+       TOP NAVIGATION BAR
        ===================================================================== -->
   <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderlight">
     <div class="max-w-6xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-4">
@@ -135,10 +135,10 @@
           Contact
         </button>
         <div class="h-4 w-px bg-borderlight mx-1 hidden sm:block"></div>
-        <button id="openStudioBtn" class="p-2 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium border border-borderlight bg-paper text-charcoal hover:border-ink/40 transition-all flex items-center gap-1.5" title="Edit portfolio text or download HTML for GitHub Pages">
-          <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-accent"></i>
-          <span class="hidden md:inline">Edit &amp; Export</span>
-        </button>
+        <a href="assets/CV.pdf" download class="p-2 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium border border-borderlight bg-paper text-charcoal hover:border-ink/40 transition-all flex items-center gap-1.5" title="Download CV">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-accent"></i>
+          <span class="hidden md:inline">Download CV</span>
+        </a>
       </nav>
     </div>
   </header>
@@ -150,10 +150,6 @@
 
     <!-- ===================================================================
          VIEW 1: LANDING PAGE (HOME)
-         - Hero Section with Wide Banner & Clear Introduction
-         - Latest Work (Reverse-Chronological Highlights)
-         - Skills & Capabilities
-         - Contact Section
          =================================================================== -->
     <div id="view-home" class="page-transition">
       
@@ -337,7 +333,7 @@
     </div>
 
     <!-- ===================================================================
-         VIEW 2: WORK ARCHIVE PAGE (Reverse-Chronological Order)
+         VIEW 2: WORK ARCHIVE PAGE
          =================================================================== -->
     <div id="view-work" class="hidden page-transition">
       <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-16">
@@ -379,12 +375,6 @@
 
     <!-- ===================================================================
          VIEW 3: INDIVIDUAL PROJECT DETAIL PAGE
-         - Clean structure for wide Hero Banner
-         - Metadata strip (Date, Role, Disciplines, Focus)
-         - Detailed Overview & Engineering Context
-         - Secondary Images & Visual Breakdown Gallery
-         - Long-form Deep Dive / Field Notes
-         - Previous / Next Project Navigation
          =================================================================== -->
     <div id="view-project" class="hidden page-transition">
       <article class="max-w-5xl mx-auto px-5 sm:px-8 pt-8 sm:pt-12 pb-20">
@@ -493,10 +483,10 @@
               <h2 class="text-xs font-semibold uppercase tracking-widest text-accent mb-1">03 · Deep Dive &amp; Field Notes</h2>
               <h3 class="text-xl sm:text-2xl font-semibold text-ink">Technical Details, Trade-Offs &amp; Lessons Learned</h3>
             </div>
-            <button id="editCurrentProjectBtn" class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-surface border border-borderlight text-charcoal hover:border-ink/40 transition-colors flex items-center gap-1.5">
-              <i data-lucide="pen-line" class="w-3.5 h-3.5 text-accent"></i>
-              <span>Edit Project Text</span>
-            </button>
+            <a href="https://github.com/yourusername" target="_blank" class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-surface border border-borderlight text-charcoal hover:border-ink/40 transition-colors flex items-center gap-1.5" title="Where I might drop CAD files, full project files, etc.">
+              <i data-lucide="github" class="w-3.5 h-3.5 text-accent"></i>
+              <span>View on GitHub</span>
+            </a>
           </div>
           <div id="projDetailRamble" class="prose-editorial max-w-none"></div>
         </section>
@@ -525,12 +515,6 @@
 
     <!-- ===================================================================
          VIEW 4: ABOUT ME PAGE
-         - Hero Banner & Personal Introduction
-         - Three Candid Narrative Sections:
-           1. Who I Am
-           2. What I've Done
-           3. What I Want to Do & Why
-         - Reverse-Chronological Experience & Project Milestones
          =================================================================== -->
     <div id="view-about" class="hidden page-transition">
       <div class="max-w-5xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-20 space-y-16">
@@ -732,135 +716,15 @@
         <button data-go-route="home" class="hover:text-ink transition-colors">Home</button>
         <button data-go-route="work" class="hover:text-ink transition-colors">Work</button>
         <button data-go-route="about" class="hover:text-ink transition-colors">About</button>
-        <button id="footerOpenStudioBtn" class="text-accent hover:underline font-medium">Customize &amp; Export HTML</button>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-accent hover:underline font-medium">LinkedIn</a>
       </div>
     </div>
   </footer>
 
   <!-- =====================================================================
-       MODAL: CONTENT EDITOR & GITHUB PAGES EXPORTER
-       (Allows Yuri to edit any project or bio text & download standalone HTML)
-       ===================================================================== -->
-  <div id="studioModal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-paper w-full max-w-3xl rounded-2xl border border-borderlight shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col">
-      <!-- Modal Header -->
-      <div class="px-6 py-4 bg-surface border-b border-borderlight flex items-center justify-between gap-4 shrink-0">
-        <div>
-          <h3 class="text-base font-semibold text-ink">Portfolio Editor &amp; GitHub Pages Export</h3>
-          <p class="text-xs text-muted">Customize your bio or project case studies, then download a ready-to-commit <code class="text-accent font-medium">index.html</code>.</p>
-        </div>
-        <button id="closeStudioModalBtn" class="p-1.5 rounded-lg text-muted hover:text-ink hover:bg-subtle transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <!-- Modal Scrollable Form -->
-      <div class="p-6 overflow-y-auto space-y-6 text-sm">
-        <div class="p-4 rounded-xl bg-subtle/70 border border-borderlight space-y-1.5">
-          <div class="text-xs font-semibold text-ink">Deploying to your custom GitHub Pages domain:</div>
-          <p class="text-xs text-muted leading-relaxed">
-            Click <strong>Download index.html</strong> below and place it in the root of your GitHub Pages repository (leave your existing <code>CNAME</code> file untouched so your custom domain and HTTPS stay active).
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-medium text-muted mb-1">Your Name</label>
-            <input id="editOwnerName" type="text" class="w-full px-3.5 py-2 rounded-xl bg-surface border border-borderlight text-ink text-sm focus:border-ink focus:outline-none" />
-          </div>
-          <div>
-            <label class="block text-xs font-medium text-muted mb-1">Contact Email</label>
-            <input id="editOwnerEmail" type="email" class="w-full px-3.5 py-2 rounded-xl bg-surface border border-borderlight text-ink text-sm focus:border-ink focus:outline-none" />
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-muted mb-1">Landing Page Hero Headline</label>
-          <input id="editHeroHeadline" type="text" class="w-full px-3.5 py-2 rounded-xl bg-surface border border-borderlight text-ink text-sm focus:border-ink focus:outline-none" />
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-muted mb-1">Landing Page Introduction</label>
-          <textarea id="editHeroSubtext" rows="2" class="w-full px-3.5 py-2 rounded-xl bg-surface border border-borderlight text-ink text-sm focus:border-ink focus:outline-none"></textarea>
-        </div>
-
-        <div class="pt-4 border-t border-borderlight space-y-4">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <label class="text-xs font-semibold uppercase tracking-wider text-accent">Edit Individual Project Page</label>
-            <select id="editProjectSelect" class="px-3 py-1.5 rounded-xl bg-surface border border-borderlight text-ink text-xs font-medium focus:outline-none"></select>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div class="sm:col-span-2">
-              <label class="block text-xs font-medium text-muted mb-1">Project Title</label>
-              <input id="editProjTitle" type="text" class="w-full px-3.5 py-2 rounded-xl bg-surface border border-borderlight text-ink text-sm focus:border-ink focus:outline-none" />
-            </div>
-            <div>
-              <label class="block text-xs font-medium text-muted mb-1">Timeline / Date</label>
-              <input id="editProjDate" type="text" class="w-full px-3.5 py-2 rounded-xl bg-surface border border-borderlight text-ink text-sm focus:border-ink focus:outline-none" />
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-xs font-medium text-muted mb-1">Subtitle / Card Summary</label>
-            <input id="editProjSummary" type="text" class="w-full px-3.5 py-2 rounded-xl bg-surface border border-borderlight text-ink text-sm focus:border-ink focus:outline-none" />
-          </div>
-
-          <div>
-            <label class="block text-xs font-medium text-muted mb-1">Deep Dive / Detailed Case Study Notes (paragraphs separated by blank lines)</label>
-            <textarea id="editProjRamble" rows="6" class="w-full px-3.5 py-2 rounded-xl bg-surface border border-borderlight text-ink text-sm leading-relaxed focus:border-ink focus:outline-none"></textarea>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal Footer -->
-      <div class="px-6 py-4 bg-surface border-t border-borderlight flex flex-wrap items-center justify-between gap-3 shrink-0">
-        <button id="resetStudioBtn" class="px-4 py-2 rounded-full text-xs font-medium text-muted hover:text-ink border border-borderlight hover:bg-subtle transition-colors">
-          Reset to Defaults
-        </button>
-        <div class="flex items-center gap-2">
-          <button id="saveStudioBtn" class="px-5 py-2 rounded-full text-xs font-medium bg-subtle text-ink hover:bg-borderlight transition-colors">
-            Save Changes
-          </button>
-          <button id="downloadHtmlBtn" class="px-5 py-2 rounded-full text-xs font-medium bg-ink text-paper hover:bg-charcoal transition-colors flex items-center gap-1.5">
-            <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            <span>Download index.html</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Subtle Notification Toast -->
-  <div id="toastNotice" class="fixed bottom-5 right-5 z-50 hidden bg-ink text-paper px-4 py-2.5 rounded-full shadow-lg text-xs font-medium flex items-center gap-2">
-    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-    <span id="toastMessage">Saved</span>
-  </div>
-
-  <!-- =====================================================================
        PORTFOLIO DATA & MULTI-PAGE ROUTER LOGIC
        ===================================================================== -->
   <script>
-    function safeGetItem(k) {
-      try { return localStorage.getItem(k); } catch (e) { return null; }
-    }
-    function safeSetItem(k, v) {
-      try { localStorage.setItem(k, v); } catch (e) {}
-    }
-    function safeRemoveItem(k) {
-      try { localStorage.removeItem(k); } catch (e) {}
-    }
-
-    function showToast(msg) {
-      const el = document.getElementById('toastNotice');
-      const txt = document.getElementById('toastMessage');
-      if (!el || !txt) return;
-      txt.textContent = msg;
-      el.classList.remove('hidden');
-      clearTimeout(window.__toastTimer);
-      window.__toastTimer = setTimeout(() => el.classList.add('hidden'), 3000);
-    }
-
     // Generate clean, high-resolution architectural SVG diagrams for secondary project visuals
     function makeArchitecturalDiagramSvg(title, subtitle, layers) {
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
@@ -884,7 +748,7 @@
     }
 
     // Default Portfolio Data — Structured in Reverse-Chronological Order (Newest -> Oldest)
-    const DEFAULT_DATA = {
+    const portfolioData = {
       ownerName: "Yuri",
       ownerEmail: "ybendall2005@gmail.com",
       heroHeadline: "Engineering physical systems from the microstructure up.",
@@ -908,7 +772,7 @@
             },
             {
               img: makeArchitecturalDiagramSvg(
-                "VAWT Azimuthal Flow & Structural Coupling",
+                "VAWT Azimuthal Flow & structural Coupling",
                 "Coupled aerodynamic load and composite blade deflection across rotation",
                 [
                   { tag: "AERODYNAMIC REGIME (λ = 1.5 – 4.0)", text: "Upwind vortex shedding interacts with downwind blade sweep, driving cyclic torque ripple.", color: "#2B4C65" },
@@ -1244,18 +1108,6 @@
       ]
     };
 
-    // Load state
-    let portfolioData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-    const savedState = safeGetItem('yuri_editorial_portfolio_v2');
-    if (savedState) {
-      try {
-        const parsed = JSON.parse(savedState);
-        if (parsed && Array.isArray(parsed.projects) && parsed.projects.length === DEFAULT_DATA.projects.length) {
-          portfolioData = parsed;
-        }
-      } catch (e) {}
-    }
-
     let currentRoute = 'home';
     let currentWorkFilter = 'all';
     let activeProjectId = portfolioData.projects[0].id;
@@ -1496,83 +1348,6 @@
     }
 
     // =========================================================================
-    // CONTENT STUDIO / EXPORTER LOGIC
-    // =========================================================================
-    function openStudioModal(preselectProjId) {
-      const modal = document.getElementById('studioModal');
-      document.getElementById('editOwnerName').value = portfolioData.ownerName;
-      document.getElementById('editOwnerEmail').value = portfolioData.ownerEmail;
-      document.getElementById('editHeroHeadline').value = portfolioData.heroHeadline;
-      document.getElementById('editHeroSubtext').value = portfolioData.heroSubtext;
-
-      const select = document.getElementById('editProjectSelect');
-      select.innerHTML = portfolioData.projects.map(p =>
-        `<option value="${p.id}">${p.date} — ${p.title}</option>`
-      ).join('');
-
-      if (preselectProjId) select.value = preselectProjId;
-      populateStudioProjectFields(select.value);
-
-      select.onchange = () => populateStudioProjectFields(select.value);
-      modal.classList.remove('hidden');
-    }
-
-    function populateStudioProjectFields(projId) {
-      const proj = portfolioData.projects.find(p => p.id === projId);
-      if (!proj) return;
-      document.getElementById('editProjTitle').value = proj.title;
-      document.getElementById('editProjDate').value = proj.date;
-      document.getElementById('editProjSummary').value = proj.summary;
-      const rambleStr = Array.isArray(proj.ramble) ? proj.ramble.join('\n\n') : String(proj.ramble);
-      document.getElementById('editProjRamble').value = rambleStr;
-    }
-
-    function saveStudioChanges() {
-      portfolioData.ownerName = document.getElementById('editOwnerName').value.trim() || 'Yuri';
-      portfolioData.ownerEmail = document.getElementById('editOwnerEmail').value.trim() || 'ybendall2005@gmail.com';
-      portfolioData.heroHeadline = document.getElementById('editHeroHeadline').value.trim();
-      portfolioData.heroSubtext = document.getElementById('editHeroSubtext').value.trim();
-
-      const selectedId = document.getElementById('editProjectSelect').value;
-      const proj = portfolioData.projects.find(p => p.id === selectedId);
-      if (proj) {
-        proj.title = document.getElementById('editProjTitle').value.trim();
-        proj.date = document.getElementById('editProjDate').value.trim();
-        proj.summary = document.getElementById('editProjSummary').value.trim();
-        proj.ramble = document.getElementById('editProjRamble').value
-          .split(/\n\s*\n/)
-          .map(s => s.trim())
-          .filter(Boolean);
-      }
-
-      safeSetItem('yuri_editorial_portfolio_v2', JSON.stringify(portfolioData));
-      renderGlobalIdentity();
-      renderHomeLatestWork();
-      renderWorkArchive();
-      if (currentRoute === 'project') {
-        renderProjectDetailPage(activeProjectId);
-      }
-      bindDynamicProjectLinks();
-      if (window.lucide) window.lucide.createIcons();
-      showToast('Changes applied to portfolio');
-    }
-
-    function downloadStandaloneHtml() {
-      saveStudioChanges();
-      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'index.html';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      showToast('Downloaded index.html for GitHub Pages');
-    }
-
-    // =========================================================================
     // INITIALIZE APPLICATION
     // =========================================================================
     window.addEventListener('DOMContentLoaded', () => {
@@ -1618,7 +1393,7 @@
       document.getElementById('copyEmailBtn').addEventListener('click', () => {
         const email = portfolioData.ownerEmail;
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(email).then(() => showToast('Email address copied')).catch(() => fallbackCopyText(email));
+          navigator.clipboard.writeText(email).catch(() => fallbackCopyText(email));
         } else {
           fallbackCopyText(email);
         }
@@ -1629,36 +1404,9 @@
         ta.value = text;
         document.body.appendChild(ta);
         ta.select();
-        try { document.execCommand('copy'); showToast('Email address copied'); } catch (e) {}
+        try { document.execCommand('copy'); } catch (e) {}
         document.body.removeChild(ta);
       }
-
-      // Studio modal triggers
-      document.getElementById('openStudioBtn').addEventListener('click', () => openStudioModal(activeProjectId));
-      document.getElementById('footerOpenStudioBtn').addEventListener('click', () => openStudioModal(activeProjectId));
-      document.getElementById('editCurrentProjectBtn').addEventListener('click', () => openStudioModal(activeProjectId));
-      document.getElementById('closeStudioModalBtn').addEventListener('click', () => {
-        document.getElementById('studioModal').classList.add('hidden');
-      });
-
-      document.getElementById('saveStudioBtn').addEventListener('click', () => {
-        saveStudioChanges();
-        document.getElementById('studioModal').classList.add('hidden');
-      });
-
-      document.getElementById('downloadHtmlBtn').addEventListener('click', downloadStandaloneHtml);
-
-      document.getElementById('resetStudioBtn').addEventListener('click', () => {
-        safeRemoveItem('yuri_editorial_portfolio_v2');
-        portfolioData = JSON.parse(JSON.stringify(DEFAULT_DATA));
-        openStudioModal(activeProjectId);
-        renderGlobalIdentity();
-        renderHomeLatestWork();
-        renderWorkArchive();
-        renderProjectDetailPage(activeProjectId);
-        bindDynamicProjectLinks();
-        showToast('Reset to original content');
-      });
     });
   </script>
 </body>
