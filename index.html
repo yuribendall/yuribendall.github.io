@@ -17,16 +17,16 @@
             sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
           },
           colors: {
-            surface: '#FAF9F6',
+            surface: '#F8FAFC',
             paper: '#FFFFFF',
-            subtle: '#F3F1EC',
-            ink: '#141413',
-            charcoal: '#2D2C2A',
-            muted: '#63615C',
-            borderlight: '#E6E4DD',
-            accent: '#B85435',
-            accentdark: '#963F24',
-            slateaccent: '#2B4C65'
+            subtle: '#F1F5F9',
+            ink: '#0F172A',
+            charcoal: '#1E293B',
+            muted: '#64748B',
+            borderlight: '#E2E8F0',
+            accent: '#0D9488',
+            accentdark: '#0F766E',
+            slateaccent: '#0284C7'
           }
         }
       }
@@ -34,8 +34,8 @@
   </script>
   <style>
     body {
-      background-color: #FAF9F6;
-      color: #141413;
+      background-color: #F8FAFC;
+      color: #0F172A;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -60,14 +60,14 @@
 
     .editorial-card {
       background: #FFFFFF;
-      border: 1px solid #E6E4DD;
+      border: 1px solid #E2E8F0;
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
     }
 
     .editorial-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 20px 40px -15px rgba(20, 20, 19, 0.07);
-      border-color: #D0CEC4;
+      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07);
+      border-color: #CBD5E1;
     }
 
     .img-zoom-container {
@@ -84,7 +84,7 @@
     .prose-editorial p {
       margin-bottom: 1.25rem;
       line-height: 1.8;
-      color: #2D2C2A;
+      color: #1E293B;
       font-size: 1.04rem;
     }
 
@@ -94,14 +94,14 @@
       height: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: #FAF9F6;
+      background: #F8FAFC;
     }
     ::-webkit-scrollbar-thumb {
-      background: #D5D2C8;
+      background: #CBD5E1;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #B8B4A8;
+      background: #94A3B8;
     }
   </style>
 </head>
@@ -728,19 +728,19 @@
     // Generate clean, high-resolution architectural SVG diagrams for secondary project visuals
     function makeArchitecturalDiagramSvg(title, subtitle, layers) {
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
-        <rect width="800" height="500" fill="#F3F1EC"/>
-        <rect x="28" y="28" width="744" height="444" rx="16" fill="#FFFFFF" stroke="#E6E4DD" stroke-width="2"/>
-        <text x="64" y="78" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#B85435" letter-spacing="1.5">SYSTEM ARCHITECTURE &amp; PARAMETER BREAKDOWN</text>
-        <text x="64" y="110" font-family="Inter, sans-serif" font-size="22" font-weight="600" fill="#141413">${title}</text>
-        <text x="64" y="136" font-family="Inter, sans-serif" font-size="14" fill="#63615C">${subtitle}</text>
-        <line x1="64" y1="158" x2="736" y2="158" stroke="#E6E4DD" stroke-width="1.5"/>
+        <rect width="800" height="500" fill="#F1F5F9"/>
+        <rect x="28" y="28" width="744" height="444" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+        <text x="64" y="78" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#0D9488" letter-spacing="1.5">SYSTEM ARCHITECTURE &amp; PARAMETER BREAKDOWN</text>
+        <text x="64" y="110" font-family="Inter, sans-serif" font-size="22" font-weight="600" fill="#0F172A">${title}</text>
+        <text x="64" y="136" font-family="Inter, sans-serif" font-size="14" fill="#64748B">${subtitle}</text>
+        <line x1="64" y1="158" x2="736" y2="158" stroke="#E2E8F0" stroke-width="1.5"/>
         ${layers.map((l, i) => {
           const y = 182 + i * 88;
           return `
-            <rect x="64" y="${y}" width="672" height="72" rx="10" fill="#FAF9F6" stroke="#E6E4DD" stroke-width="1.5"/>
+            <rect x="64" y="${y}" width="672" height="72" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
             <rect x="64" y="${y}" width="6" height="72" rx="3" fill="${l.color}"/>
             <text x="90" y="${y + 28}" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="${l.color}">${l.tag}</text>
-            <text x="90" y="${y + 50}" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#141413">${l.text}</text>
+            <text x="90" y="${y + 50}" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#0F172A">${l.text}</text>
           `;
         }).join('')}
       </svg>`;
@@ -775,8 +775,8 @@
                 "VAWT Azimuthal Flow & structural Coupling",
                 "Coupled aerodynamic load and composite blade deflection across rotation",
                 [
-                  { tag: "AERODYNAMIC REGIME (λ = 1.5 – 4.0)", text: "Upwind vortex shedding interacts with downwind blade sweep, driving cyclic torque ripple.", color: "#2B4C65" },
-                  { tag: "MATERIALS & COMPOSITE SPAR", text: "Specific modulus (E/ρ) of carbon/glass skin prevents aeroelastic flutter under centrifugal bending.", color: "#B85435" },
+                  { tag: "AERODYNAMIC REGIME (λ = 1.5 – 4.0)", text: "Upwind vortex shedding interacts with downwind blade sweep, driving cyclic torque ripple.", color: "#0284C7" },
+                  { tag: "MATERIALS & COMPOSITE SPAR", text: "Specific modulus (E/ρ) of carbon/glass skin prevents aeroelastic flutter under centrifugal bending.", color: "#0D9488" },
                   { tag: "GENERATOR LOAD MATCHING", text: "Electromagnetic braking torque tracks the peak power coefficient (Cp) ridge across wind gusts.", color: "#15803D" }
                 ]
               ),
@@ -819,8 +819,8 @@
                 "Physics-Guided Machine Learning Pipeline",
                 "Embedding domain invariants into small-data engineering models",
                 [
-                  { tag: "DOMAIN FEATURE EXTRACTION", text: "Transform raw sensor & microscope data into dimensionless physical groups (Re, λ, grain size d^-1/2).", color: "#B85435" },
-                  { tag: "REGULARIZED SURROGATE MODEL", text: "Penalize non-physical oscillations to ensure smooth derivatives across sparse experimental regimes.", color: "#2B4C65" },
+                  { tag: "DOMAIN FEATURE EXTRACTION", text: "Transform raw sensor & microscope data into dimensionless physical groups (Re, λ, grain size d^-1/2).", color: "#0D9488" },
+                  { tag: "REGULARIZED SURROGATE MODEL", text: "Penalize non-physical oscillations to ensure smooth derivatives across sparse experimental regimes.", color: "#0284C7" },
                   { tag: "FAST DESIGN SPACE EXPLORATION", text: "Evaluate thousands of candidate geometries and material compositions in milliseconds.", color: "#15803D" }
                 ]
               ),
@@ -863,8 +863,8 @@
                 "Mechatronic Joint & Control Loop Architecture",
                 "Co-designing mechanical stiffness, gearing, and closed-loop feedback",
                 [
-                  { tag: "STRUCTURAL LINK & BEARING STACK", text: "High specific-stiffness carbon tubes & preloaded bearings minimize structural deflection at the end-effector.", color: "#B85435" },
-                  { tag: "TRANSMISSION & KINEMATICS", text: "Low-backlash reduction stages matched to link inertia tensor to prevent limit-cycle hunting.", color: "#2B4C65" },
+                  { tag: "STRUCTURAL LINK & BEARING STACK", text: "High specific-stiffness carbon tubes & preloaded bearings minimize structural deflection at the end-effector.", color: "#0D9488" },
+                  { tag: "TRANSMISSION & KINEMATICS", text: "Low-backlash reduction stages matched to link inertia tensor to prevent limit-cycle hunting.", color: "#0284C7" },
                   { tag: "EMBEDDED SENSING & PID CONTROL", text: "High-rate encoder & current sense feedback for smooth trajectory tracking and torque limiting.", color: "#15803D" }
                 ]
               ),
@@ -906,8 +906,8 @@
                 "Micro-Class Airframe Mass & Stiffness Trade-Off",
                 "Balancing structural bending strength against stall speed and payload fraction",
                 [
-                  { tag: "ANISOTROPIC MATERIALS SELECTION", text: "Uniaxial carbon-fiber spar caps carry root bending moment; tangent-cut balsa webs resist shear buckling.", color: "#B85435" },
-                  { tag: "LOW-REYNOLDS AERODYNAMICS", text: "High-lift airfoil section & tail volume sized for short takeoff roll under strict wingspan limits.", color: "#2B4C65" },
+                  { tag: "ANISOTROPIC MATERIALS SELECTION", text: "Uniaxial carbon-fiber spar caps carry root bending moment; tangent-cut balsa webs resist shear buckling.", color: "#0D9488" },
+                  { tag: "LOW-REYNOLDS AERODYNAMICS", text: "High-lift airfoil section & tail volume sized for short takeoff roll under strict wingspan limits.", color: "#0284C7" },
                   { tag: "PROPULSION & MICRO-AVIONICS", text: "Brushless outrunner, LiPo cell, and micro-servos positioned to hit CG without dead ballast.", color: "#15803D" }
                 ]
               ),
@@ -950,8 +950,8 @@
                 "Multiphase Rock Fracture & Surface Characterization",
                 "Connecting crystal lattice cleavage to macroscopic mechanical failure",
                 [
-                  { tag: "CRYSTALLOGRAPHIC CLEAVAGE & PHASES", text: "Quartz, feldspar & mafic grains exhibit distinct elastic moduli and preferred cleavage planes.", color: "#B85435" },
-                  { tag: "FRACTURE PROPAGATION PATH", text: "Crack tip deflects along weak grain boundaries (intergranular) or cleaves across lattices (transgranular).", color: "#2B4C65" },
+                  { tag: "CRYSTALLOGRAPHIC CLEAVAGE & PHASES", text: "Quartz, feldspar & mafic grains exhibit distinct elastic moduli and preferred cleavage planes.", color: "#0D9488" },
+                  { tag: "FRACTURE PROPAGATION PATH", text: "Crack tip deflects along weak grain boundaries (intergranular) or cleaves across lattices (transgranular).", color: "#0284C7" },
                   { tag: "QUANTITATIVE SURFACE TOPOGRAPHY", text: "Hackle marks, river patterns & roughness (Ra) reconstruct stress state at failure.", color: "#15803D" }
                 ]
               ),
@@ -994,8 +994,8 @@
                 "Isotropic Wet Etching & Single-Layer Routing Constraints",
                 "How chemical mass transport shapes electrical trace geometry",
                 [
-                  { tag: "REDOX ETCHING KINETICS (FeCl3 + Cu)", text: "Isotropic dissolution etches laterally under the resist mask at ~1:1 ratio with vertical depth.", color: "#B85435" },
-                  { tag: "SUBSTRATE & THERMAL PREP", text: "Mechanical oxide removal and uniform thermal resist transfer prevent pinholes and trace necking.", color: "#2B4C65" },
+                  { tag: "REDOX ETCHING KINETICS (FeCl3 + Cu)", text: "Isotropic dissolution etches laterally under the resist mask at ~1:1 ratio with vertical depth.", color: "#0D9488" },
+                  { tag: "SUBSTRATE & THERMAL PREP", text: "Mechanical oxide removal and uniform thermal resist transfer prevent pinholes and trace necking.", color: "#0284C7" },
                   { tag: "TOPOLOGICAL SINGLE-LAYER ROUTING", text: "Wide copper pour return paths, 0-ohm bridge placement, and pad fillets for mechanical solder strength.", color: "#15803D" }
                 ]
               ),
@@ -1038,8 +1038,8 @@
                 "Hardware Supply Chain as a Dynamical System",
                 "Balancing MOQ unit economics against lead-time buffers and working capital",
                 [
-                  { tag: "UPSTREAM VENDOR & MATERIAL QA", text: "Material grade verification, surface finish tolerances, and tooling amortization across batch sizes.", color: "#B85435" },
-                  { tag: "FREIGHT & LEAD-TIME BUFFERS", text: "Managing production queues, customs clearance delays, and safety stock reorder points.", color: "#2B4C65" },
+                  { tag: "UPSTREAM VENDOR & MATERIAL QA", text: "Material grade verification, surface finish tolerances, and tooling amortization across batch sizes.", color: "#0D9488" },
+                  { tag: "FREIGHT & LEAD-TIME BUFFERS", text: "Managing production queues, customs clearance delays, and safety stock reorder points.", color: "#0284C7" },
                   { tag: "LANDED UNIT ECONOMICS", text: "Optimizing volumetric packaging weight, BOM consolidation, and cash conversion cycles.", color: "#15803D" }
                 ]
               ),
@@ -1082,8 +1082,8 @@
                 "Closed-Volume Hydrological & Carbon Mass Balance",
                 "Multi-layer substrate engineering for zero-maintenance biological equilibrium",
                 [
-                  { tag: "TRANSPIRATION & CONDENSATION LOOP", text: "Solar/LED thermal input drives leaf transpiration; glass wall nucleation returns distilled water.", color: "#2B4C65" },
-                  { tag: "ACTIVATED CARBON ADSORPTION LAYER", text: "High-surface-area microporous carbon adsorbs organic volatiles and prevents anaerobic souring.", color: "#B85435" },
+                  { tag: "TRANSPIRATION & CONDENSATION LOOP", text: "Solar/LED thermal input drives leaf transpiration; glass wall nucleation returns distilled water.", color: "#0284C7" },
+                  { tag: "ACTIVATED CARBON ADSORPTION LAYER", text: "High-surface-area microporous carbon adsorbs organic volatiles and prevents anaerobic souring.", color: "#0D9488" },
                   { tag: "VOLCANIC PUMICE DRAINAGE RESERVOIR", text: "Coarse mineral porosity isolates root zone from standing water while maintaining vapor pressure.", color: "#15803D" }
                 ]
               ),
