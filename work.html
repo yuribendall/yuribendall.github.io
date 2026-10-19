@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work &amp; Case Studies | Yuri</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="js/site.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { background-color: #F8FAFC; color: #0F172A; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .page-transition { animation: fadeSlideUp 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .editorial-card { background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease; }
+    .editorial-card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07); border-color: #CBD5E1; }
+    .img-zoom-container { overflow: hidden; }
+    .img-zoom-container img { transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+    .editorial-card:hover .img-zoom-container img { transform: scale(1.035); }
+  </style>
+</head>
+<body data-page="work" class="min-h-screen flex flex-col selection:bg-accent/15 selection:text-accentdark">
+
+  <div id="site-header"></div>
+
+  <main class="flex-1 page-transition">
+    <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-16">
+      <div class="max-w-3xl space-y-3 pb-8 border-b border-borderlight">
+        <p class="text-xs font-semibold uppercase tracking-widest text-accent">Project Archive · Reverse-Chronological</p>
+        <h1 class="text-3xl sm:text-4xl font-semibold text-ink tracking-tight">Work &amp; Engineering Case Studies</h1>
+        <p class="text-base text-muted leading-relaxed">
+          Ordered from my most recent characterization, machine learning, and robotics work back to my earliest closed-ecosystem research. Click any project to open its dedicated page.
+        </p>
+      </div>
+
+      <!-- Category Filter Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-4 py-6">
+        <div class="flex flex-wrap items-center gap-2">
+          <button data-work-filter="all" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-ink text-paper transition-all">All Work (8)</button>
+          <button data-work-filter="Materials Science" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-paper text-muted border border-borderlight hover:text-ink transition-all">Materials Science</button>
+          <button data-work-filter="Mechanical & Aero" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-paper text-muted border border-borderlight hover:text-ink transition-all">Mechanical &amp; Aero</button>
+          <button data-work-filter="Mechatronics & Electronics" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-paper text-muted border border-borderlight hover:text-ink transition-all">Mechatronics &amp; Electronics</button>
+          <button data-work-filter="Simulation & Strategy" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-paper text-muted border border-borderlight hover:text-ink transition-all">Simulation, ML &amp; Operations</button>
+        </div>
+        <span class="text-xs text-muted font-medium">Sorted: Newest → Oldest (2026 – 2022)</span>
+      </div>
+
+      <!-- All 8 Project Cards in Plain HTML -->
+      <div class="space-y-8 mt-2">
+
+        <!-- 01: Lapis Lazuli Characterization -->
+        <a href="projects/materials-characterization-lapis.html" data-project-category="Materials Science" class="editorial-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+          <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-subtle img-zoom-container relative min-h-[240px]">
+            <img src="assets/lapis-microstructure.jpg" alt="Materials Characterization & Morphological Analysis" class="w-full h-full object-cover" />
+          </div>
+          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent">2026 · Materials Science</span>
+                <span class="project-index-badge text-xs text-muted">01 / 08</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Materials Characterization &amp; Morphological Analysis
+              </h2>
+              <p class="text-sm sm:text-base text-muted leading-relaxed">
+                Characterizing multi-phase crystal morphology, phase-boundary isolation, and microstructural fracture mechanisms in lapis lazuli across powdered, polished, and fractured specimens using XRD, SEM, and optical microscopy.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Materials Characterization</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Morphology &amp; Fractography</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Microscopy &amp; Diffraction</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-borderlight flex items-center justify-between text-xs sm:text-sm font-medium text-ink">
+              <span class="text-muted text-xs">Scope: <strong class="text-charcoal font-medium">Phase &amp; Crystal Structure Identification × Electron Optics &amp; Imaging × High-Resolution Microstructural Analysis</strong></span>
+              <span class="inline-flex items-center gap-1.5 text-accent group-hover:translate-x-1 transition-transform shrink-0">
+                <span>Open Project Page</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 02: ML for Physical Systems -->
+        <a href="projects/ml-physical-systems.html" data-project-category="Simulation & Strategy" class="editorial-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+          <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-subtle img-zoom-container relative min-h-[240px]">
+            <img src="assets/ml-materials.jpg" alt="Machine Learning for Physical & Materials Systems" class="w-full h-full object-cover" />
+          </div>
+          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent">2026 · Simulation &amp; Strategy</span>
+                <span class="project-index-badge text-xs text-muted">02 / 08</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Machine Learning for Physical &amp; Materials Systems
+              </h2>
+              <p class="text-sm sm:text-base text-muted leading-relaxed">
+                Building physics-informed machine learning pipelines and surrogate models to predict material properties and aerodynamic response surfaces.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Machine Learning</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Materials Informatics</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Surrogate Modeling</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-borderlight flex items-center justify-between text-xs sm:text-sm font-medium text-ink">
+              <span class="text-muted text-xs">Scope: <strong class="text-charcoal font-medium">Materials Data × Physics Constraints × Computation</strong></span>
+              <span class="inline-flex items-center gap-1.5 text-accent group-hover:translate-x-1 transition-transform shrink-0">
+                <span>Open Project Page</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 03: Robotics & Mechatronics -->
+        <a href="projects/robotics-mechatronics.html" data-project-category="Mechatronics & Electronics" class="editorial-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+          <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-subtle img-zoom-container relative min-h-[240px]">
+            <img src="assets/robotics-prototype.jpg" alt="Robotics & Mechatronic Actuation Prototypes" class="w-full h-full object-cover" />
+          </div>
+          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent">2025 – 2026 · Mechatronics &amp; Electronics</span>
+                <span class="project-index-badge text-xs text-muted">03 / 08</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Robotics &amp; Mechatronic Actuation Prototypes
+              </h2>
+              <p class="text-sm sm:text-base text-muted leading-relaxed">
+                Designing multi-axis robotic mechanisms where structural link stiffness, drivetrain backlash, sensor feedback, and embedded control loops meet.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Robotics</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Mechatronics</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Actuation &amp; Control</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-borderlight flex items-center justify-between text-xs sm:text-sm font-medium text-ink">
+              <span class="text-muted text-xs">Scope: <strong class="text-charcoal font-medium">Carbon/Aluminum Structure × Kinematics × Embedded Control</strong></span>
+              <span class="inline-flex items-center gap-1.5 text-accent group-hover:translate-x-1 transition-transform shrink-0">
+                <span>Open Project Page</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 04: Micro-Class Competition Aircraft -->
+        <a href="projects/micro-aircraft.html" data-project-category="Mechanical & Aero" class="editorial-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+          <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-subtle img-zoom-container relative min-h-[240px]">
+            <img src="assets/micro-aircraft.jpg" alt="Micro-Class Competition Aircraft" class="w-full h-full object-cover" />
+          </div>
+          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent">2025 · Mechanical &amp; Aero</span>
+                <span class="project-index-badge text-xs text-muted">04 / 08</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Micro-Class Competition Aircraft — Aero Design Team
+              </h2>
+              <p class="text-sm sm:text-base text-muted leading-relaxed">
+                Designing and fabricating ultralight competition RC aircraft where balsa grain anisotropy, carbon-fiber spars, and micro-avionics fight for every gram of payload.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Aerospace Design Team</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Composites &amp; Balsa</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Flight Systems</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-borderlight flex items-center justify-between text-xs sm:text-sm font-medium text-ink">
+              <span class="text-muted text-xs">Scope: <strong class="text-charcoal font-medium">Ultralight Materials × Low-Re Aerodynamics × Avionics</strong></span>
+              <span class="inline-flex items-center gap-1.5 text-accent group-hover:translate-x-1 transition-transform shrink-0">
+                <span>Open Project Page</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 05: Rock Surface Characterization -->
+        <a href="projects/rock-surface-analysis.html" data-project-category="Materials Science" class="editorial-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+          <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-subtle img-zoom-container relative min-h-[240px]">
+            <img src="assets/rock-surface.jpg" alt="Rock Surface Characterization & Fracture Analysis" class="w-full h-full object-cover" />
+          </div>
+          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent">2025 · Materials Science</span>
+                <span class="project-index-badge text-xs text-muted">05 / 08</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Rock Surface Characterization &amp; Fracture Analysis
+              </h2>
+              <p class="text-sm sm:text-base text-muted leading-relaxed">
+                Coursework and laboratory investigation of mineral cleavage planes, surface topography, and intergranular vs. transgranular fracture mechanisms.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Materials Characterization</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Fractography</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Microscopy</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-borderlight flex items-center justify-between text-xs sm:text-sm font-medium text-ink">
+              <span class="text-muted text-xs">Scope: <strong class="text-charcoal font-medium">Mineralogy &amp; Microstructure × Fracture Mechanics × Optical/SEM Imaging</strong></span>
+              <span class="inline-flex items-center gap-1.5 text-accent group-hover:translate-x-1 transition-transform shrink-0">
+                <span>Open Project Page</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 06: Custom Etched PCB -->
+        <a href="projects/custom-etched-pcb.html" data-project-category="Mechatronics & Electronics" class="editorial-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+          <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-subtle img-zoom-container relative min-h-[240px]">
+            <img src="assets/custom-pcb.jpg" alt="Custom Ferric-Chloride Etched PCB" class="w-full h-full object-cover" />
+          </div>
+          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent">2024 · Mechatronics &amp; Electronics</span>
+                <span class="project-index-badge text-xs text-muted">06 / 08</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Custom Ferric-Chloride Etched PCB &amp; Hardware Controller
+              </h2>
+              <p class="text-sm sm:text-base text-muted leading-relaxed">
+                Taking an electronic circuit from schematic capture to a hand-etched bare copper FR4 board: mastering mask transfer, isotropic etch kinetics, and single-layer routing.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">PCB Fabrication</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Chemical Etching</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Embedded Hardware</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-borderlight flex items-center justify-between text-xs sm:text-sm font-medium text-ink">
+              <span class="text-muted text-xs">Scope: <strong class="text-charcoal font-medium">Etch Chemistry &amp; Laminates × Topological Routing × Embedded Signal</strong></span>
+              <span class="inline-flex items-center gap-1.5 text-accent group-hover:translate-x-1 transition-transform shrink-0">
+                <span>Open Project Page</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 07: Supply Chain Venture -->
+        <a href="projects/supply-chain-venture.html" data-project-category="Simulation & Strategy" class="editorial-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+          <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-subtle img-zoom-container relative min-h-[240px]">
+            <img src="assets/supply-chain.jpg" alt="Supply Chain & Hardware Logistics Venture" class="w-full h-full object-cover" />
+          </div>
+          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent">2023 – 2024 · Simulation &amp; Strategy</span>
+                <span class="project-index-badge text-xs text-muted">07 / 08</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Supply Chain &amp; Hardware Logistics Venture
+              </h2>
+              <p class="text-sm sm:text-base text-muted leading-relaxed">
+                Founded a company to learn firsthand how raw material sourcing, supplier minimum order quantities (MOQs), freight lead times, and unit economics work outside the lab.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Supply Chain &amp; Logistics</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Venture Operations</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Manufacturing</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-borderlight flex items-center justify-between text-xs sm:text-sm font-medium text-ink">
+              <span class="text-muted text-xs">Scope: <strong class="text-charcoal font-medium">Material Specs &amp; QA × Manufacturing Lead Times × Unit Economics</strong></span>
+              <span class="inline-flex items-center gap-1.5 text-accent group-hover:translate-x-1 transition-transform shrink-0">
+                <span>Open Project Page</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- 08: Closed-Loop Terrarium -->
+        <a href="projects/closed-loop-terrarium.html" data-project-category="Materials Science" class="editorial-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 group">
+          <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-subtle img-zoom-container relative min-h-[240px]">
+            <img src="assets/closed-terrarium.jpg" alt="Self-Sustaining Closed-Loop Terrarium" class="w-full h-full object-cover" />
+          </div>
+          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent">2022 · High School Research · Materials Science</span>
+                <span class="project-index-badge text-xs text-muted">08 / 08</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Self-Sustaining Closed-Loop Terrarium
+              </h2>
+              <p class="text-sm sm:text-base text-muted leading-relaxed">
+                High school research project engineering a sealed biological micro-climate with stratified porous substrates to study long-term hydrological and carbon equilibrium.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Closed-Loop Ecosystem</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Porous Media</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">Research Project</span>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-borderlight flex items-center justify-between text-xs sm:text-sm font-medium text-ink">
+              <span class="text-muted text-xs">Scope: <strong class="text-charcoal font-medium">Porous Substrate Chemistry × Vapor/Thermal Cycles × Biological Loop</strong></span>
+              <span class="inline-flex items-center gap-1.5 text-accent group-hover:translate-x-1 transition-transform shrink-0">
+                <span>Open Project Page</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+</body>
+</html>
