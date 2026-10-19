@@ -6,1409 +6,301 @@
   <title>Yuri | Materials Engineering &amp; Mechatronic Systems</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="js/site.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-          },
-          colors: {
-            surface: '#F8FAFC',
-            paper: '#FFFFFF',
-            subtle: '#F1F5F9',
-            ink: '#0F172A',
-            charcoal: '#1E293B',
-            muted: '#64748B',
-            borderlight: '#E2E8F0',
-            accent: '#0D9488',
-            accentdark: '#0F766E',
-            slateaccent: '#0284C7'
-          }
-        }
-      }
-    };
-  </script>
   <style>
-    body {
-      background-color: #F8FAFC;
-      color: #0F172A;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    /* Fluid editorial transitions */
-    .page-transition {
-      animation: fadeSlideUp 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    @keyframes fadeSlideUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .editorial-card {
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-    }
-
-    .editorial-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07);
-      border-color: #CBD5E1;
-    }
-
-    .img-zoom-container {
-      overflow: hidden;
-    }
-    .img-zoom-container img {
-      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .editorial-card:hover .img-zoom-container img,
-    .img-zoom-trigger:hover img {
-      transform: scale(1.035);
-    }
-
-    .prose-editorial p {
-      margin-bottom: 1.25rem;
-      line-height: 1.8;
-      color: #1E293B;
-      font-size: 1.04rem;
-    }
-
-    /* Subtle scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F8FAFC;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #CBD5E1;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94A3B8;
-    }
+    body { background-color: #F8FAFC; color: #0F172A; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .page-transition { animation: fadeSlideUp 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .editorial-card { background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease; }
+    .editorial-card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07); border-color: #CBD5E1; }
+    .img-zoom-container { overflow: hidden; }
+    .img-zoom-container img { transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+    .editorial-card:hover .img-zoom-container img { transform: scale(1.035); }
   </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-accent/15 selection:text-accentdark">
+<body data-page="home" class="min-h-screen flex flex-col selection:bg-accent/15 selection:text-accentdark">
 
-  <!-- =====================================================================
-       TOP NAVIGATION BAR
-       ===================================================================== -->
-  <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderlight">
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-4">
-      <!-- Brand / Name -->
-      <button id="brandLogoBtn" class="text-left group focus:outline-none flex items-center gap-3">
-        <span id="navOwnerName" class="text-xl font-semibold tracking-tight text-ink group-hover:text-accent transition-colors"></span>
-        <span class="hidden sm:inline-block text-xs text-muted font-normal border-l border-borderlight pl-3">
-          Materials Engineering &amp; Mechatronic Systems
-        </span>
-      </button>
+  <div id="site-header"></div>
 
-      <!-- Primary Multi-Page Navigation -->
-      <nav class="flex items-center gap-1 sm:gap-2">
-        <button data-route="home" class="nav-link px-3.5 py-2 rounded-full text-sm font-medium transition-all text-ink bg-subtle">
-          Home
-        </button>
-        <button data-route="work" class="nav-link px-3.5 py-2 rounded-full text-sm font-medium transition-all text-muted hover:text-ink">
-          Work
-        </button>
-        <button data-route="about" class="nav-link px-3.5 py-2 rounded-full text-sm font-medium transition-all text-muted hover:text-ink">
-          About
-        </button>
-        <button id="navContactBtn" class="px-3.5 py-2 rounded-full text-sm font-medium transition-all text-muted hover:text-ink">
-          Contact
-        </button>
-        <div class="h-4 w-px bg-borderlight mx-1 hidden sm:block"></div>
-        <a href="assets/CV.pdf" download class="p-2 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium border border-borderlight bg-paper text-charcoal hover:border-ink/40 transition-all flex items-center gap-1.5" title="Download CV">
-          <i data-lucide="file-text" class="w-3.5 h-3.5 text-accent"></i>
-          <span class="hidden md:inline">Download CV</span>
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- =====================================================================
-       MAIN ROUTER VIEW CONTAINER
-       ===================================================================== -->
-  <main class="flex-1">
-
-    <!-- ===================================================================
-         VIEW 1: LANDING PAGE (HOME)
-         =================================================================== -->
-    <div id="view-home" class="page-transition">
-      
-      <!-- Hero Section -->
-      <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-16 pb-14">
-        <div class="max-w-4xl space-y-5">
-          <p class="text-xs font-semibold uppercase tracking-widest text-accent">
-            Materials Science × Mechanical Systems × Electronics
-          </p>
-          <h1 id="homeHeroHeadline" class="text-3xl sm:text-5xl font-semibold text-ink tracking-tight leading-[1.15]">
-            <span class="block">Studying materials at the microscale.</span>
-            <span class="block">Building systems at the macroscale.</span>
-          </h1>
-          <p id="homeHeroSubtext" class="text-base sm:text-lg text-muted leading-relaxed font-normal">
-            I'm Yuri, a materials engineering student fascinated by mechatronics. I like building physical hardware, modeling the physics behind it, and figuring out how micro-level material choices make or break the dynamic systems they run on.
-          </p>
-          <div class="pt-2 flex flex-wrap items-center gap-3">
-            <button data-go-route="work" class="px-6 py-3 rounded-full bg-ink text-paper text-sm font-medium hover:bg-charcoal transition-all flex items-center gap-2">
-              <span>Explore All Work</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </button>
-            <button data-go-route="about" class="px-6 py-3 rounded-full bg-paper text-ink border border-borderlight text-sm font-medium hover:border-ink/40 transition-all">
-              More About Me
-            </button>
-          </div>
+  <main class="flex-1 page-transition">
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-16 pb-14">
+      <div class="max-w-4xl space-y-5">
+        <p class="text-xs font-semibold uppercase tracking-widest text-accent">
+          Materials Science × Mechanical Systems × Electronics
+        </p>
+        <h1 class="text-3xl sm:text-5xl font-semibold text-ink tracking-tight leading-[1.15]">
+          <span class="block">Studying materials at the microscale.</span>
+          <span class="block">Building systems at the macroscale.</span>
+        </h1>
+        <p class="text-base sm:text-lg text-muted leading-relaxed font-normal">
+          I'm Yuri, a materials engineering student fascinated by mechatronics. I like building physical hardware, modeling the physics behind it, and figuring out how micro-level material choices make or break the dynamic systems they run on.
+        </p>
+        <div class="pt-2 flex flex-wrap items-center gap-3">
+          <a href="work.html" class="px-6 py-3 rounded-full bg-ink text-paper text-sm font-medium hover:bg-charcoal transition-all flex items-center gap-2">
+            <span>Explore All Work</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="about.html" class="px-6 py-3 rounded-full bg-paper text-ink border border-borderlight text-sm font-medium hover:border-ink/40 transition-all">
+            More About Me
+          </a>
         </div>
-
-        <!-- Clean Wide Hero Banner -->
-        <div class="mt-10 sm:mt-12 rounded-2xl overflow-hidden border border-borderlight bg-paper shadow-sm">
-          <div class="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden bg-subtle">
-            <img id="homeHeroBannerImg" src="assets/hero-studio.jpg" alt="Engineering workbench with turbine airfoils, copper PCBs, and mineral samples" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
-            <div class="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-8 sm:right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-white">
-              <div class="max-w-xl">
-                <span class="text-xs uppercase tracking-widest text-white/80 font-medium">SEM TO REVEAL SURFACE MORHPHOLOGY</span>
-                <p class="text-sm sm:text-base font-medium mt-1 leading-snug">
-                  Secondary Electrons and Backscattered Electrons revealed the 3 primary phases of our fractured Lapis Lazuli sample.
-                </p>
-              </div>
-              <button data-open-project="vawt-simulation" class="self-start sm:self-auto px-4 py-2 rounded-full bg-white/95 text-ink text-xs font-medium hover:bg-white transition-colors shrink-0 flex items-center gap-1.5 shadow-sm">
-                <span>Latest: VAWT Blade Simulation</span>
-                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Latest Work Section (Reverse-Chronological) -->
-      <section class="max-w-6xl mx-auto px-5 sm:px-8 py-14 border-t border-borderlight">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-widest text-muted mb-2">Selected Projects</p>
-            <h2 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">Latest Work</h2>
-          </div>
-          <button data-go-route="work" class="self-start sm:self-auto text-sm font-medium text-accent hover:text-accentdark flex items-center gap-1.5 group">
-            <span>View full archive (8 projects)</span>
-            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
-          </button>
-        </div>
-
-        <!-- Latest 4 Projects Grid -->
-        <div id="homeLatestGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
-      </section>
-
-      <!-- Skills & Capabilities Section -->
-      <section class="bg-paper border-y border-borderlight py-16">
-        <div class="max-w-6xl mx-auto px-5 sm:px-8">
-          <div class="max-w-2xl mb-12">
-            <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">Capabilities</p>
-            <h2 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">Skills &amp; Technical Focus</h2>
-            <p class="text-muted text-sm sm:text-base mt-2 leading-relaxed">
-              Materials, mechanics, and electronics directly impact each other, and I focus on how they constrain and enable one another across the full lifecycle of a physical product.            </p>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Pillar 1 -->
-            <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
-              <div class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
-                <i data-lucide="layers" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="text-base font-semibold text-ink">Materials Science</h3>
-                <p class="text-xs text-muted mt-1 leading-relaxed">
-                  Microstructure-property relationships, fracture analysis, and chemical processing.
-                </p>
-              </div>
-              <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Rock &amp; Mineral Surface Characterization</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Composite Layups (Carbon / Balsa / FR4)</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Fractography &amp; Optical Microscopy</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Wet Chemical Copper Etching</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Porous Substrate &amp; Mass Transport</li>
-              </ul>
-            </div>
-
-            <!-- Pillar 2 -->
-            <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
-              <div class="w-10 h-10 rounded-xl bg-slateaccent/10 text-slateaccent flex items-center justify-center">
-                <i data-lucide="wind" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="text-base font-semibold text-ink">Mechanical &amp; Aero</h3>
-                <p class="text-xs text-muted mt-1 leading-relaxed">
-                  Aerodynamic modeling, lightweight structural design, and multi-axis mechanisms.
-                </p>
-              </div>
-              <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>VAWT Blade Aerodynamics &amp; CFD</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Micro-Class Competition Airframes</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Structural Stiffness &amp; Mass Budgeting</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Robotic Linkages &amp; Kinematics</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>CAD Prototyping &amp; Fabrication</li>
-              </ul>
-            </div>
-
-            <!-- Pillar 3 -->
-            <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
-              <div class="w-10 h-10 rounded-xl bg-emerald-800/10 text-emerald-800 flex items-center justify-center">
-                <i data-lucide="cpu" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="text-base font-semibold text-ink">Mechatronics &amp; Electronics</h3>
-                <p class="text-xs text-muted mt-1 leading-relaxed">
-                  Custom circuit fabrication, embedded sensing, and electromechanical actuation.
-                </p>
-              </div>
-              <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Schematic Capture &amp; PCB Layout</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Custom PCB Etching &amp; Soldering</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Brushless Motor &amp; Servo Control</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Environmental &amp; Load Telemetry</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Closed-Loop Hardware Integration</li>
-              </ul>
-            </div>
-
-            <!-- Pillar 4 -->
-            <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
-              <div class="w-10 h-10 rounded-xl bg-amber-800/10 text-amber-800 flex items-center justify-center">
-                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h3 class="text-base font-semibold text-ink">Simulation, ML &amp; Operations</h3>
-                <p class="text-xs text-muted mt-1 leading-relaxed">
-                  Physics-informed computation and real-world supply chain execution.
-                </p>
-              </div>
-              <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Machine Learning for Physical Systems</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Numerical Modeling &amp; Parameter Sweeps</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Supply Chain Sourcing &amp; Vendor MOQs</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Freight, Lead-Time &amp; Unit Economics</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>End-to-End Project Documentation</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Brief About Preview Banner on Home -->
-      <section class="max-w-6xl mx-auto px-5 sm:px-8 py-16">
-        <div class="rounded-2xl bg-subtle/80 border border-borderlight p-7 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-8 space-y-3">
-            <p class="text-xs font-semibold uppercase tracking-widest text-accent">Background &amp; Motivation</p>
-            <h2 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">
-              Who am I, what have I built, and where do I want to go?
-            </h2>
-            <p class="text-sm sm:text-base text-muted leading-relaxed">
-              What drives me isn't just solving isolated equations; it's the visual and structural elegance that emerges when complex physics interact in a complete system. Materials science gives you the invisible rules; mechatronics and dynamic modeling make them tangible. I want to build at that boundary.
-            </p>
-          </div>
-          <div class="lg:col-span-4 flex lg:justify-end">
-            <button data-go-route="about" class="px-6 py-3.5 rounded-full bg-ink text-paper text-sm font-medium hover:bg-charcoal transition-all flex items-center gap-2">
-              <span>Read My Full Story</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </button>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- ===================================================================
-         VIEW 2: WORK ARCHIVE PAGE
-         =================================================================== -->
-    <div id="view-work" class="hidden page-transition">
-      <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-16">
-        <!-- Page Header -->
-        <div class="max-w-3xl space-y-3 pb-8 border-b border-borderlight">
-          <p class="text-xs font-semibold uppercase tracking-widest text-accent">Project Archive · Reverse-Chronological</p>
-          <h1 class="text-3xl sm:text-4xl font-semibold text-ink tracking-tight">Work &amp; Engineering Case Studies</h1>
-          <p class="text-base text-muted leading-relaxed">
-            Ordered from my most recent simulation, machine learning, and robotics work back to my earliest closed-ecosystem research. Click any project to open its dedicated page with full hero banners, secondary visual galleries, and detailed notes.
-          </p>
-        </div>
-
-        <!-- Category Filter Bar -->
-        <div class="flex flex-wrap items-center justify-between gap-4 py-6">
-          <div class="flex flex-wrap items-center gap-2" id="workFilterBar">
-            <button data-work-filter="all" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-ink text-paper transition-all">
-              All Work (8)
-            </button>
-            <button data-work-filter="Materials Science" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-paper text-muted border border-borderlight hover:text-ink transition-all">
-              Materials Science
-            </button>
-            <button data-work-filter="Mechanical & Aero" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-paper text-muted border border-borderlight hover:text-ink transition-all">
-              Mechanical &amp; Aero
-            </button>
-            <button data-work-filter="Mechatronics & Electronics" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-paper text-muted border border-borderlight hover:text-ink transition-all">
-              Mechatronics &amp; Electronics
-            </button>
-            <button data-work-filter="Simulation & Strategy" class="work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-paper text-muted border border-borderlight hover:text-ink transition-all">
-              Simulation, ML &amp; Operations
-            </button>
-          </div>
-          <span class="text-xs text-muted font-medium">Sorted: Newest → Oldest (2026 – 2022)</span>
-        </div>
-
-        <!-- Reverse-Chronological List / Grid of All 8 Projects -->
-        <div id="workArchiveList" class="space-y-8 mt-2"></div>
-      </section>
-    </div>
-
-    <!-- ===================================================================
-         VIEW 3: INDIVIDUAL PROJECT DETAIL PAGE
-         =================================================================== -->
-    <div id="view-project" class="hidden page-transition">
-      <article class="max-w-5xl mx-auto px-5 sm:px-8 pt-8 sm:pt-12 pb-20">
-        
-        <!-- Top Breadcrumb & Back Link -->
-        <div class="flex items-center justify-between gap-4 mb-6">
-          <button data-go-route="work" class="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-ink transition-colors">
-            <i data-lucide="arrow-left" class="w-4 h-4"></i>
-            <span>Back to Work Archive</span>
-          </button>
-          <span id="projDetailChronoBadge" class="text-xs font-medium text-muted bg-subtle px-3 py-1 rounded-full border border-borderlight">
-            2026
-          </span>
-        </div>
-
-        <!-- Project Title & Lead Summary -->
-        <div class="space-y-4 max-w-3xl mb-8">
-          <div id="projDetailTags" class="flex flex-wrap items-center gap-2"></div>
-          <h1 id="projDetailTitle" class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink tracking-tight leading-tight">
-            Project Title
-          </h1>
-          <p id="projDetailSubtitle" class="text-base sm:text-lg text-muted leading-relaxed">
-            Project lead summary.
-          </p>
-        </div>
-
-        <!-- Clean Wide Hero Banner -->
-        <figure class="rounded-2xl overflow-hidden border border-borderlight bg-paper shadow-sm mb-8">
-          <div class="aspect-[16/9] w-full overflow-hidden bg-subtle">
-            <img id="projDetailHeroImg" src="" alt="Project Hero Banner" class="w-full h-full object-cover" />
-          </div>
-          <figcaption id="projDetailHeroCaption" class="px-5 py-3.5 text-xs text-muted bg-paper border-t border-borderlight">
-            Primary visual overview.
-          </figcaption>
-        </figure>
-
-        <!-- Structured Metadata Strip -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 sm:p-6 rounded-2xl bg-paper border border-borderlight mb-12">
-          <div>
-            <div class="text-xs text-muted font-medium">Timeline</div>
-            <div id="projMetaDate" class="text-sm font-semibold text-ink mt-1">2026</div>
-          </div>
-          <div>
-            <div class="text-xs text-muted font-medium">Primary Domain</div>
-            <div id="projMetaCategory" class="text-sm font-semibold text-ink mt-1">Mechanical &amp; Aero</div>
-          </div>
-          <div>
-            <div class="text-xs text-muted font-medium">System Scope</div>
-            <div id="projMetaScope" class="text-sm font-semibold text-ink mt-1">Materials × Mech × Elec</div>
-          </div>
-          <div>
-            <div class="text-xs text-muted font-medium">Key Methods</div>
-            <div id="projMetaMethods" class="text-sm font-semibold text-ink mt-1">CFD, Composite Analysis</div>
-          </div>
-        </div>
-
-        <!-- Main Editorial Content & System Coupling Breakdown -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-14">
-          <!-- Left 7 Cols: Context & Problem Statement -->
-          <div class="lg:col-span-7 space-y-6">
-            <div>
-              <h2 class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">01 · Context &amp; Motivation</h2>
-              <h3 class="text-xl sm:text-2xl font-semibold text-ink">Why I Built It &amp; The Engineering Problem</h3>
-            </div>
-            <div id="projDetailWhy" class="prose-editorial"></div>
-          </div>
-
-          <!-- Right 5 Cols: Systems-Wide Coupling Box -->
-          <aside class="lg:col-span-5 p-6 rounded-2xl bg-paper border border-borderlight space-y-5">
-            <div>
-              <div class="text-xs font-semibold uppercase tracking-widest text-muted">Systems Architecture</div>
-              <h4 class="text-base font-semibold text-ink mt-1">How the Disciplines Intersect</h4>
-            </div>
-
-            <div class="space-y-4 text-sm">
-              <div class="p-3.5 rounded-xl bg-surface border border-borderlight">
-                <div class="font-semibold text-accent text-xs uppercase tracking-wider mb-1">Materials Science</div>
-                <p id="projCouplingMat" class="text-charcoal text-xs sm:text-sm leading-relaxed"></p>
-              </div>
-              <div class="p-3.5 rounded-xl bg-surface border border-borderlight">
-                <div class="font-semibold text-slateaccent text-xs uppercase tracking-wider mb-1">Mechanical &amp; Physical</div>
-                <p id="projCouplingMech" class="text-charcoal text-xs sm:text-sm leading-relaxed"></p>
-              </div>
-              <div class="p-3.5 rounded-xl bg-surface border border-borderlight">
-                <div class="font-semibold text-emerald-800 text-xs uppercase tracking-wider mb-1">Electrical, Sensing &amp; Analysis</div>
-                <p id="projCouplingElec" class="text-charcoal text-xs sm:text-sm leading-relaxed"></p>
-              </div>
-            </div>
-          </aside>
-        </div>
-
-        <!-- Secondary Images & Visual Documentation Gallery -->
-        <section class="mb-14 space-y-6">
-          <div class="border-b border-borderlight pb-3">
-            <h2 class="text-xs font-semibold uppercase tracking-widest text-accent mb-1">02 · Visual Documentation</h2>
-            <h3 class="text-xl sm:text-2xl font-semibold text-ink">Detail Views &amp; System Diagrams</h3>
-          </div>
-
-          <div id="projDetailGallery" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-        </section>
-
-        <!-- Detailed Engineering Deep-Dive / Field Notes -->
-        <section class="mb-16 p-6 sm:p-10 rounded-2xl bg-paper border border-borderlight space-y-5">
-          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-borderlight pb-4">
-            <div>
-              <h2 class="text-xs font-semibold uppercase tracking-widest text-accent mb-1">03 · Deep Dive &amp; Field Notes</h2>
-              <h3 class="text-xl sm:text-2xl font-semibold text-ink">Technical Details, Trade-Offs &amp; Lessons Learned</h3>
-            </div>
-            <a href="https://github.com/yourusername" target="_blank" class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-surface border border-borderlight text-charcoal hover:border-ink/40 transition-colors flex items-center gap-1.5" title="Where I might drop CAD files, full project files, etc.">
-              <i data-lucide="github" class="w-3.5 h-3.5 text-accent"></i>
-              <span>View on GitHub</span>
-            </a>
-          </div>
-          <div id="projDetailRamble" class="prose-editorial max-w-none"></div>
-        </section>
-
-        <!-- Previous / Next Project Navigation (Reverse-Chronological) -->
-        <nav class="border-t border-borderlight pt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <button id="prevProjectBtn" class="editorial-card p-5 rounded-2xl text-left flex flex-col justify-between group">
-            <span class="text-xs text-muted flex items-center gap-1 group-hover:text-accent transition-colors">
-              <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-              <span>Newer Project</span>
-            </span>
-            <span id="prevProjectTitle" class="text-base font-semibold text-ink mt-2 line-clamp-1">—</span>
-          </button>
-
-          <button id="nextProjectBtn" class="editorial-card p-5 rounded-2xl text-right flex flex-col justify-between items-end group">
-            <span class="text-xs text-muted flex items-center gap-1 group-hover:text-accent transition-colors">
-              <span>Older Project</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </span>
-            <span id="nextProjectTitle" class="text-base font-semibold text-ink mt-2 line-clamp-1">—</span>
-          </button>
-        </nav>
-
-      </article>
-    </div>
-
-    <!-- ===================================================================
-         VIEW 4: ABOUT ME PAGE
-         =================================================================== -->
-    <div id="view-about" class="hidden page-transition">
-      <div class="max-w-5xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-20 space-y-16">
-        
-        <!-- About Header & Hero Banner -->
-        <section class="space-y-8">
-          <div class="max-w-3xl space-y-4">
-            <p class="text-xs font-semibold uppercase tracking-widest text-accent">About Me</p>
-            <h1 class="text-3xl sm:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              A materials engineering student who thinks across the whole system.
-            </h1>
-            <p class="text-base sm:text-lg text-muted leading-relaxed">
-              No corporate buzzwords or generic resume templates—just a straightforward look at how I think about engineering, what I’ve built so far, and the kinds of problems I want to work on next.
-            </p>
-          </div>
-
-          <figure class="rounded-2xl overflow-hidden border border-borderlight bg-paper shadow-sm">
-            <div class="aspect-[21/9] w-full overflow-hidden bg-subtle">
-              <img src="assets/hero-studio.jpg" alt="Yuri's interdisciplinary engineering workspace" class="w-full h-full object-cover" />
-            </div>
-            <figcaption class="px-5 py-3 text-xs text-muted bg-paper border-t border-borderlight">
-              Bridging benchtop materials science, mechanical structures, custom electronics, and real-world logistics.
-            </figcaption>
-          </figure>
-        </section>
-
-        <!-- Three Core Narrative Pillars -->
-        <section class="space-y-10">
-          <!-- 01. Who I Am -->
-          <div class="p-7 sm:p-10 rounded-2xl bg-paper border border-borderlight grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div class="lg:col-span-4 space-y-2">
-              <span class="text-xs font-semibold uppercase tracking-widest text-accent">01 · Identity</span>
-              <h2 class="text-2xl font-semibold text-ink">Who I Am</h2>
-              <p class="text-xs text-muted leading-relaxed">
-                Why I combine mechatronics with a deeper foundation in materials science.
-              </p>
-            </div>
-            <div id="aboutWhoBody" class="lg:col-span-8 prose-editorial">
-              <p>
-                Most engineering programs try to put you in a single lane early on: either you write software, or you route PCBs, or you design mechanical brackets in CAD, or you study phase diagrams and crystal lattices in a lab. I never really bought into that divide.
-              </p>
-              <p>
-                What initially pulled me in was <strong>mechatronics</strong>—the intersection where mechanical structures and electrical systems talk to each other. Studying <strong>materials engineering</strong> on top of that feels like unlocking the underlying rules for both. Every actuator, sensor, airframe, and circuit board is ultimately governed by what it is made of: how its microstructure handles cyclic fatigue, how heat moves through a substrate, or how chemical etching shapes a conductor.
-              </p>
-              <p>
-                I’m happiest when I can move fluidly across the whole stack—modeling a system’s physics on my laptop in the morning, fabricating or etching the hardware in the afternoon, and inspecting how it actually performed under a microscope at night.
-              </p>
-            </div>
-          </div>
-
-          <!-- 02. What I've Done -->
-          <div class="p-7 sm:p-10 rounded-2xl bg-paper border border-borderlight grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div class="lg:col-span-4 space-y-2">
-              <span class="text-xs font-semibold uppercase tracking-widest text-slateaccent">02 · Track Record</span>
-              <h2 class="text-2xl font-semibold text-ink">What I’ve Done</h2>
-              <p class="text-xs text-muted leading-relaxed">
-                From closed-loop biological systems and hobby planes to custom PCBs, CFD simulations, and running a business.
-              </p>
-            </div>
-            <div id="aboutDoneBody" class="lg:col-span-8 prose-editorial">
-              <p>
-                I learn best by picking projects that push me into unfamiliar territory. Back in high school, that meant building a <strong>self-sustaining closed-loop terrarium</strong> for a research project to see how water, gas exchange, and porous substrate layers find equilibrium without external intervention.
-              </p>
-              <p>
-                In university, it meant joining an aero design team to build <strong>micro-class competition aircraft</strong> where every gram of balsa, carbon spar, and polymer film has to earn its place in the air—while spending my coursework analyzing <strong>specific rocks and their fracture surface features</strong> to understand how real, heterogeneous materials fail.
-              </p>
-              <p>
-                Along the way, I’ve <strong>etched custom PCBs</strong> from bare copper laminate for personal hardware projects, built <strong>robotics prototypes</strong>, run extensive <strong>aerodynamic simulations for vertical axis wind turbine (VAWT) blade performance</strong>, explored <strong>machine learning</strong> for physical modeling, and even <strong>started a company</strong> specifically to learn how supply chains, vendor lead times, and business logistics work in the real world.
-              </p>
-            </div>
-          </div>
-
-          <!-- 03. What I Want to Do & Why -->
-          <div class="p-7 sm:p-10 rounded-2xl bg-paper border border-borderlight grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div class="lg:col-span-4 space-y-2">
-              <span class="text-xs font-semibold uppercase tracking-widest text-emerald-800">03 · Direction</span>
-              <h2 class="text-2xl font-semibold text-ink">What I Want to Do &amp; Why</h2>
-              <p class="text-xs text-muted leading-relaxed">
-                Solving hard physical problems where materials, mechanics, electronics, and manufacturing meet.
-              </p>
-            </div>
-            <div id="aboutNextBody" class="lg:col-span-8 prose-editorial">
-              <p>
-                A lot of modern tech treats hardware as an afterthought—just a commodity box to run code in. The problems I care about most—clean energy systems, aerospace structures, robotics, and resilient manufacturing—are the exact opposite. You can’t fake the physics, and you can’t ignore the supply chain.
-              </p>
-              <p>
-                <strong>What I want to do:</strong> Work on multidisciplinary R&amp;D and hardware engineering teams where I can bridge <strong>materials characterization, mechatronic prototyping, and numerical simulation</strong>.
-              </p>
-              <p>
-                <strong>Why:</strong> Because the most interesting bottlenecks in hardware don’t happen neatly inside one department. They happen at the boundaries—where aerodynamic loads meet composite fatigue, where circuit layout meets chemical processing, and where a prototype in the lab has to survive real-world sourcing and production logistics.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Reverse-Chronological Milestones Summary -->
-        <section class="space-y-6">
-          <div class="border-b border-borderlight pb-4 flex items-center justify-between">
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-widest text-muted">Chronology</p>
-              <h2 class="text-2xl font-semibold text-ink mt-1">Education &amp; Project Timeline</h2>
-            </div>
-            <button data-go-route="work" class="text-sm font-medium text-accent hover:underline">
-              View detailed case studies →
-            </button>
-          </div>
-
-          <div class="space-y-4">
-            <div class="p-5 rounded-2xl bg-paper border border-borderlight flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div>
-                <span class="text-xs font-semibold text-accent">2026 · Current</span>
-                <h3 class="text-base font-semibold text-ink mt-0.5">VAWT Blade Aerodynamic Simulation &amp; Machine Learning Projects</h3>
-                <p class="text-xs sm:text-sm text-muted">Computational fluid dynamics, unsteady vortex modeling, and physics-informed ML pipelines.</p>
-              </div>
-              <button data-open-project="vawt-simulation" class="text-xs font-medium text-ink hover:text-accent shrink-0 self-start sm:self-center">Read Case Study →</button>
-            </div>
-
-            <div class="p-5 rounded-2xl bg-paper border border-borderlight flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div>
-                <span class="text-xs font-semibold text-muted">2025 – 2026</span>
-                <h3 class="text-base font-semibold text-ink mt-0.5">B.A.Sc. Materials Engineering Coursework, Aero Design Team &amp; Robotics</h3>
-                <p class="text-xs sm:text-sm text-muted">Micro-class competition RC aircraft fabrication, multi-axis robotics, and rock fracture surface characterization.</p>
-              </div>
-              <button data-open-project="micro-aircraft" class="text-xs font-medium text-ink hover:text-accent shrink-0 self-start sm:self-center">Read Case Study →</button>
-            </div>
-
-            <div class="p-5 rounded-2xl bg-paper border border-borderlight flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div>
-                <span class="text-xs font-semibold text-muted">2023 – 2024</span>
-                <h3 class="text-base font-semibold text-ink mt-0.5">Custom PCB Etching &amp; Supply Chain / Logistics Venture</h3>
-                <p class="text-xs sm:text-sm text-muted">Founded a hardware/product venture to learn supplier MOQs, freight logistics, and unit economics; fabricated custom etched PCBs.</p>
-              </div>
-              <button data-open-project="supply-chain-venture" class="text-xs font-medium text-ink hover:text-accent shrink-0 self-start sm:self-center">Read Case Study →</button>
-            </div>
-
-            <div class="p-5 rounded-2xl bg-paper border border-borderlight flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div>
-                <span class="text-xs font-semibold text-muted">2022 · High School Research</span>
-                <h3 class="text-base font-semibold text-ink mt-0.5">Self-Sustaining Closed-Loop Terrarium</h3>
-                <p class="text-xs sm:text-sm text-muted">Designed a multi-layer porous substrate and sealed hydrological loop to study mass-transfer equilibrium.</p>
-              </div>
-              <button data-open-project="closed-loop-terrarium" class="text-xs font-medium text-ink hover:text-accent shrink-0 self-start sm:self-center">Read Case Study →</button>
-            </div>
-          </div>
-        </section>
-
       </div>
-    </div>
 
-    <!-- ===================================================================
-         SHARED CONTACT SECTION (Accessible from any page)
-         =================================================================== -->
-    <section id="section-contact" class="bg-paper border-t border-borderlight py-16 sm:py-20">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div class="lg:col-span-7 space-y-3">
-            <p class="text-xs font-semibold uppercase tracking-widest text-accent">Contact</p>
-            <h2 class="text-2xl sm:text-4xl font-semibold text-ink tracking-tight">
-              Let’s talk about materials, hardware, or new opportunities.
-            </h2>
-            <p class="text-sm sm:text-base text-muted leading-relaxed max-w-xl">
-              Whether you want to chat about a project or discuss internship opportunities, feel free to reach out directly.
-            </p>
-          </div>
-
-          <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3 sm:items-center lg:items-end">
-            <div class="w-full sm:w-auto min-w-[280px] p-5 rounded-2xl bg-surface border border-borderlight space-y-3">
-              <div class="text-xs text-muted font-medium">Direct Email</div>
-              <div id="contactEmailText" class="text-base font-semibold text-ink break-all">
-                ybendall2005@gmail.com
-              </div>
-              <div class="flex items-center gap-2 pt-1">
-                <a id="mailtoLinkBtn" href="mailto:ybendall2005@gmail.com" class="flex-1 py-2.5 px-4 rounded-xl bg-ink text-paper text-xs font-medium text-center hover:bg-charcoal transition-colors">
-                  Send Email
-                </a>
-                <button id="copyEmailBtn" class="py-2.5 px-4 rounded-xl bg-paper text-ink border border-borderlight text-xs font-medium hover:border-ink/40 transition-colors">
-                  Copy Address
-                </button>
-              </div>
+      <!-- Wide Hero Banner -->
+      <div class="mt-10 sm:mt-12 rounded-2xl overflow-hidden border border-borderlight bg-paper shadow-sm">
+        <div class="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden bg-subtle">
+          <img src="assets/hero-studio.jpg" alt="Engineering workbench with turbine airfoils, copper PCBs, and mineral samples" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+          <div class="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-8 sm:right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-white">
+            <div class="max-w-xl">
+              <span class="text-xs uppercase tracking-widest text-white/80 font-medium">SEM TO REVEAL SURFACE MORPHOLOGY</span>
+              <p class="text-sm sm:text-base font-medium mt-1 leading-snug">
+                Secondary Electrons and Backscattered Electrons revealed the 3 primary phases of our fractured Lapis Lazuli sample.
+              </p>
             </div>
+            <a href="projects/materials-characterization-lapis.html" class="self-start sm:self-auto px-4 py-2 rounded-full bg-white/95 text-ink text-xs font-medium hover:bg-white transition-colors shrink-0 flex items-center gap-1.5 shadow-sm">
+              <span>Latest: Lapis Lazuli Characterization</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-  </main>
-
-  <!-- =====================================================================
-       CLEAN EDITORIAL FOOTER
-       ===================================================================== -->
-  <footer class="bg-surface border-t border-borderlight py-8">
-    <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
-      <div class="flex items-center gap-2">
-        <span class="font-semibold text-ink" id="footerOwnerName">Yuri</span>
-        <span>·</span>
-        <span>Materials Engineering &amp; Mechatronic Systems Portfolio</span>
+    <!-- Latest Work Section (4 Cards in Plain HTML) -->
+    <section class="max-w-6xl mx-auto px-5 sm:px-8 py-14 border-t border-borderlight">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted mb-2">Selected Projects</p>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">Latest Work</h2>
+        </div>
+        <a href="work.html" class="self-start sm:self-auto text-sm font-medium text-accent hover:text-accentdark flex items-center gap-1.5 group">
+          <span>View full archive (8 projects)</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </a>
       </div>
-      <div class="flex items-center gap-5">
-        <button data-go-route="home" class="hover:text-ink transition-colors">Home</button>
-        <button data-go-route="work" class="hover:text-ink transition-colors">Work</button>
-        <button data-go-route="about" class="hover:text-ink transition-colors">About</button>
-        <a href="https://linkedin.com/in/yuribendall" target="_blank" class="text-accent hover:underline font-medium">LinkedIn</a>
-      </div>
-    </div>
-  </footer>
 
-  <!-- =====================================================================
-       PORTFOLIO DATA & MULTI-PAGE ROUTER LOGIC
-       ===================================================================== -->
-  <script>
-    // Generate clean, high-resolution architectural SVG diagrams for secondary project visuals
-    function makeArchitecturalDiagramSvg(title, subtitle, layers) {
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
-        <rect width="800" height="500" fill="#F1F5F9"/>
-        <rect x="28" y="28" width="744" height="444" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
-        <text x="64" y="78" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#0D9488" letter-spacing="1.5">SYSTEM ARCHITECTURE &amp; PARAMETER BREAKDOWN</text>
-        <text x="64" y="110" font-family="Inter, sans-serif" font-size="22" font-weight="600" fill="#0F172A">${title}</text>
-        <text x="64" y="136" font-family="Inter, sans-serif" font-size="14" fill="#64748B">${subtitle}</text>
-        <line x1="64" y1="158" x2="736" y2="158" stroke="#E2E8F0" stroke-width="1.5"/>
-        ${layers.map((l, i) => {
-          const y = 182 + i * 88;
-          return `
-            <rect x="64" y="${y}" width="672" height="72" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
-            <rect x="64" y="${y}" width="6" height="72" rx="3" fill="${l.color}"/>
-            <text x="90" y="${y + 28}" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="${l.color}">${l.tag}</text>
-            <text x="90" y="${y + 50}" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#0F172A">${l.text}</text>
-          `;
-        }).join('')}
-      </svg>`;
-      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-    }
-
-    // Default Portfolio Data — Structured in Reverse-Chronological Order (Newest -> Oldest)
-    const portfolioData = {
-      ownerName: "Yuri",
-      ownerEmail: "ybendall2005@gmail.com",
-      heroHeadline: "<span class='block'>Studying materials at the microscale.</span><span class='block'>Building systems at the macroscale.</span>",
-      heroSubtext: "I'm Yuri, a materials engineering student fascinated by mechatronics. I like building physical hardware, modeling the physics behind it, and figuring out how micro-level material choices make or break the dynamic systems they run on.",
-      projects: [
-        {
-          id: "materials-characterization-lapis",
-          date: "2026",
-          category: "Materials Science",
-          tags: ["Materials Characterization", "Morphology & Fractography", "Microscopy & Diffraction"],
-          title: "Materials Characterization & Morphological Analysis",
-          summary: "Characterizing multi-phase crystal morphology, phase-boundary isolation, and microstructural fracture mechanisms in lapis lazuli across powdered, polished, and fractured specimens using XRD, SEM, and optical microscopy.",
-          scope: "Phase & Crystal Structure Identification × Electron Optics & Imaging × High-Resolution Microstructural Analysis.",
-          methods: "X-ray Diffraction (XRD), Scanning Electron Microscopy (SEM), Sample Preparation & Polishing",
-          heroImage: "assets/lapis-microstructure.jpg",
-          heroCaption: "Microstructural mapping and phase-boundary isolation of a polished lapis lazuli specimen under electron microscopy.",
-          secondaryVisuals: [
-
-            {
-              img: "assets/hero-studio.jpg",
-              caption: "Figure 1 — Airfoil section prototyping and structural spar inspection alongside aerodynamic pressure distribution plots."
-            },
-            {
-              img: makeArchitecturalDiagramSvg(
-                "VAWT Azimuthal Flow & structural Coupling",
-                "Coupled aerodynamic load and composite blade deflection across rotation",
-                [
-                  { tag: "AERODYNAMIC REGIME (λ = 1.5 – 4.0)", text: "Upwind vortex shedding interacts with downwind blade sweep, driving cyclic torque ripple.", color: "#0284C7" },
-                  { tag: "MATERIALS & COMPOSITE SPAR", text: "Specific modulus (E/ρ) of carbon/glass skin prevents aeroelastic flutter under centrifugal bending.", color: "#0D9488" },
-                  { tag: "GENERATOR LOAD MATCHING", text: "Electromagnetic braking torque tracks the peak power coefficient (Cp) ridge across wind gusts.", color: "#15803D" }
-                ]
-              ),
-              caption: "Figure 2 — System coupling between unsteady azimuthal aerodynamics, blade spar stiffness, and generator torque."
-            }
-          ],
-          coupling: {
-            materials: "Carbon and fiberglass composite layup stiffness governs aeroelastic twist and high-cycle fatigue resistance under reversing aerodynamic loads every revolution.",
-            mechanical: "High azimuthal variation in angle of attack triggers dynamic stall and blade-vortex interaction as each airfoil passes through its own shed wake.",
-            electrical: "Generator torque-speed characteristics must be matched to the rotor's power coefficient (Cp) curve to prevent stall at low wind speeds."
-          },
-          why: [
-            "Horizontal-axis wind turbines get most of the textbook attention because their steady-state inflow math is clean and predictable. Vertical Axis Wind Turbines (VAWTs) are omnidirectional and well-suited for turbulent urban or distributed environments, but aerodynamically they are far more complex: every blade flies through the turbulent wake shed by the upstream blades every half-rotation.",
-            "I wanted to model how blade geometry, pitch angle, and tip-speed ratio interact in this unsteady regime—and connect those fluid loads directly to the structural realities of the blade material."
-          ],
-          ramble: [
-            "When you simulate a vertical axis turbine across a range of tip-speed ratios (λ), the most interesting behavior happens in the transition between dynamic stall at low λ and parasitic drag losses at high λ. During the upwind sweep, the effective angle of attack climbs rapidly until a leading-edge vortex separates and convects downstream, intersecting the trailing blades.",
-            "If you look at the problem purely from an aerodynamic perspective, you might choose an ultra-thin profile or an aggressive fixed pitch mount. However, once you bring materials engineering into the loop, centrifugal stiffening and cyclic bending moments dominate the design. The specific modulus of the composite skin and spar cap determines whether the blade holds its aerodynamic twist or deflects into torsional flutter.",
-            "Running these simulations reinforced why I love systems-level engineering: optimizing the aerodynamic surface only works if your structural material and electromechanical load curve are designed as part of the same conversation."
-          ]
-        },
-        {
-          id: "ml-physical-systems",
-          date: "2026",
-          category: "Simulation & Strategy",
-          tags: ["Machine Learning", "Materials Informatics", "Surrogate Modeling"],
-          title: "Machine Learning for Physical & Materials Systems",
-          summary: "Building physics-informed machine learning pipelines and surrogate models to predict material properties and aerodynamic response surfaces.",
-          scope: "Materials Data × Physics Constraints × Computation",
-          methods: "Feature Engineering, Surrogate Regression, Classification",
-          heroImage: "assets/ml-materials.jpg",
-          heroCaption: "Visualizing multi-dimensional material microstructure features and continuous physical response manifolds.",
-          secondaryVisuals: [
-            {
-              img: "assets/rock-surface.jpg",
-              caption: "Figure 1 — Extracting quantitative microstructural and surface roughness descriptors from experimental imaging datasets."
-            },
-            {
-              img: makeArchitecturalDiagramSvg(
-                "Physics-Guided Machine Learning Pipeline",
-                "Embedding domain invariants into small-data engineering models",
-                [
-                  { tag: "DOMAIN FEATURE EXTRACTION", text: "Transform raw sensor & microscope data into dimensionless physical groups (Re, λ, grain size d^-1/2).", color: "#0D9488" },
-                  { tag: "REGULARIZED SURROGATE MODEL", text: "Penalize non-physical oscillations to ensure smooth derivatives across sparse experimental regimes.", color: "#0284C7" },
-                  { tag: "FAST DESIGN SPACE EXPLORATION", text: "Evaluate thousands of candidate geometries and material compositions in milliseconds.", color: "#15803D" }
-                ]
-              ),
-              caption: "Figure 2 — Architecture for combining physical invariants with data-driven surrogate inference."
-            }
-          ],
-          coupling: {
-            materials: "Encoding crystallographic, compositional, and thermal-history descriptors so models respect physical phase boundaries and Hall-Petch scaling.",
-            mechanical: "Replacing multi-hour CFD and finite-element parameter sweeps with fast, differentiable surrogate response surfaces.",
-            electrical: "Filtering noisy sensor telemetry and structuring lightweight inference pipelines for embedded hardware."
-          },
-          why: [
-            "In both materials characterization and aerodynamic simulation, generating a single high-fidelity data point—whether through an SEM session, a mechanical tensile test, or a fine-mesh CFD run—takes hours. Pure black-box machine learning struggles when experimental data is sparse and noisy.",
-            "I built these machine learning projects to explore how domain knowledge from physics and materials science can make data-driven models dramatically more reliable and sample-efficient."
-          ],
-          ramble: [
-            "The biggest lesson from applying machine learning to physical systems is that feature representation matters more than model size. When you feed raw, unscaled coordinates or raw pixel intensities into a regression model on a small dataset, it happily memorizes experimental noise and violates basic conservation laws.",
-            "By structuring inputs around physical invariants—such as non-dimensional Reynolds and tip-speed numbers in fluid problems, or grain-boundary density and phase fractions in materials problems—the model starts with the right inductive bias.",
-            "Using ML as a fast surrogate on top of real physics simulations lets you explore trade-offs across thousands of candidate designs in seconds, then verify the best candidates with full numerical or lab testing."
-          ]
-        },
-        {
-          id: "robotics-mechatronics",
-          date: "2025 – 2026",
-          category: "Mechatronics & Electronics",
-          tags: ["Robotics", "Mechatronics", "Actuation & Control"],
-          title: "Robotics & Mechatronic Actuation Prototypes",
-          summary: "Designing multi-axis robotic mechanisms where structural link stiffness, drivetrain backlash, sensor feedback, and embedded control loops meet.",
-          scope: "Carbon/Aluminum Structure × Kinematics × Embedded Control",
-          methods: "Kinematic Design, Closed-Loop Control, Electromechanical Integration",
-          heroImage: "assets/robotics-prototype.jpg",
-          heroCaption: "Precision multi-axis robotic joint prototype combining machined aluminum housings, carbon-fiber structural links, and braided sensor harnesses.",
-          secondaryVisuals: [
-            {
-              img: "assets/custom-pcb.jpg",
-              caption: "Figure 1 — Custom power distribution and sensor interface electronics developed for actuator feedback."
-            },
-            {
-              img: makeArchitecturalDiagramSvg(
-                "Mechatronic Joint & Control Loop Architecture",
-                "Co-designing mechanical stiffness, gearing, and closed-loop feedback",
-                [
-                  { tag: "STRUCTURAL LINK & BEARING STACK", text: "High specific-stiffness carbon tubes & preloaded bearings minimize structural deflection at the end-effector.", color: "#0D9488" },
-                  { tag: "TRANSMISSION & KINEMATICS", text: "Low-backlash reduction stages matched to link inertia tensor to prevent limit-cycle hunting.", color: "#0284C7" },
-                  { tag: "EMBEDDED SENSING & PID CONTROL", text: "High-rate encoder & current sense feedback for smooth trajectory tracking and torque limiting.", color: "#15803D" }
-                ]
-              ),
-              caption: "Figure 2 — Mechanical, material, and electrical feedback interactions inside a multi-axis robotic joint."
-            }
-          ],
-          coupling: {
-            materials: "Selecting aluminum alloys, carbon-fiber tubing, and low-friction polymer bearing surfaces to maximize stiffness-to-weight and minimize wear.",
-            mechanical: "Managing link inertia, gear reduction backlash, and structural resonance across multi-degree-of-freedom kinematic chains.",
-            electrical: "Integrating rotary encoders, current-sensing amplifiers, and microcontroller PWM stages for responsive closed-loop control."
-          },
-          why: [
-            "To me, mechatronics is the natural meeting point of the mechanical and electrical worlds—and robotics is where that intersection is tested the hardest. When a robotic arm oscillates or overshoots its target, you can't just blame the code or just blame the bracket.",
-            "I built and iterated on robotic mechanisms to experience firsthand how mechanical compliance, material selection, and electronic control loops shape each other."
-          ],
-          ramble: [
-            "In an introductory control systems class, every robot link is treated as an infinitely rigid body and every motor is an ideal torque source. The moment you build real hardware, those assumptions evaporate. Structural compliance in a 3D-printed or thin-wall bracket, stiction in a bearing race, or voltage sag on a motor rail will turn a theoretically stable PID loop into a chattering mess.",
-            "Approaching robotics with a materials and systems mindset changes how you debug. Instead of just cranking up software filtering to hide structural vibration, you look at the modulus and damping of the structural links, preload the bearings properly, and route the sensor lines away from switching noise so the physical hardware does half the control work naturally."
-          ]
-        },
-        {
-          id: "micro-aircraft",
-          date: "2025",
-          category: "Mechanical & Aero",
-          tags: ["Aerospace Design Team", "Composites & Balsa", "Flight Systems"],
-          title: "Micro-Class Competition Aircraft — Aero Design Team",
-          summary: "Designing and fabricating ultralight competition RC aircraft where balsa grain anisotropy, carbon-fiber spars, and micro-avionics fight for every gram of payload.",
-          scope: "Ultralight Materials × Low-Re Aerodynamics × Avionics",
-          methods: "Airframe Fabrication, Wing Loading Optimization, Flight Testing",
-          heroImage: "assets/micro-aircraft.jpg",
-          heroCaption: "Ultralight micro-class competition airframe featuring laser-cut balsa ribs, pultruded carbon-fiber spar caps, and tensioned polymer skin.",
-          secondaryVisuals: [
-            {
-              img: "assets/hero-studio.jpg",
-              caption: "Figure 1 — Benchtop wing spar layup, adhesive mass budgeting, and control surface linkage alignment."
-            },
-            {
-              img: makeArchitecturalDiagramSvg(
-                "Micro-Class Airframe Mass & Stiffness Trade-Off",
-                "Balancing structural bending strength against stall speed and payload fraction",
-                [
-                  { tag: "ANISOTROPIC MATERIALS SELECTION", text: "Uniaxial carbon-fiber spar caps carry root bending moment; tangent-cut balsa webs resist shear buckling.", color: "#0D9488" },
-                  { tag: "LOW-REYNOLDS AERODYNAMICS", text: "High-lift airfoil section & tail volume sized for short takeoff roll under strict wingspan limits.", color: "#0284C7" },
-                  { tag: "PROPULSION & MICRO-AVIONICS", text: "Brushless outrunner, LiPo cell, and micro-servos positioned to hit CG without dead ballast.", color: "#15803D" }
-                ]
-              ),
-              caption: "Figure 2 — Co-optimization of composite spar architecture, aerodynamic wing loading, and avionics placement."
-            }
-          ],
-          coupling: {
-            materials: "Exploiting the directional grain properties of balsa wood alongside high-modulus uniaxial carbon-fiber roving and heat-shrink polymer film.",
-            mechanical: "Optimizing wing loading, torsional stiffness against aileron reversal, and landing gear shock absorption under strict competition size rules.",
-            electrical: "Sizing the brushless propulsion system, ESC thermal capacity, and micro-servo torque within a tight gram-level mass budget."
-          },
-          why: [
-            "In micro-class aero design competitions, empty weight isn't just a minor penalty—it scales non-linearly with stall speed, takeoff distance, and wing-root bending stress. Every single gram of glue, wire insulation, and wood has to justify its existence.",
-            "Working on the design team gave me a hands-on appreciation for how theoretical CAD models meet the reality of anisotropic natural and composite materials."
-          ],
-          ramble: [
-            "When you build an aircraft structure that weighs only a few hundred grams, materials science is everywhere. Two sheets of balsa wood that look identical at a glance can vary wildly in density and stiffness depending on how the timber was cut relative to the growth rings. Pairing a C-grain balsa shear web with pultruded carbon-fiber spar caps creates a miniature I-beam with an exceptional stiffness-to-weight ratio.",
-            "Adhesive discipline is just as critical:wicking too much cyanoacrylate or epoxy into a joint adds dead mass without increasing bond strength, because the surrounding wood fibers will tear long before the glue joint fails.",
-            "On the mechatronics side, we co-located the battery, receiver, and servos with the main structural bulkhead so the aircraft balanced at its aerodynamic center of gravity naturally—eliminating the need for any non-structural nose weight."
-          ]
-        },
-        {
-          id: "rock-surface-analysis",
-          date: "2025",
-          category: "Materials Science",
-          tags: ["Materials Characterization", "Fractography", "Microscopy"],
-          title: "Rock Surface Characterization & Fracture Analysis",
-          summary: "Coursework and laboratory investigation of mineral cleavage planes, surface topography, and intergranular vs. transgranular fracture mechanisms.",
-          scope: "Mineralogy & Microstructure × Fracture Mechanics × Optical/SEM Imaging",
-          methods: "Optical Petrography, Surface Profilometry, Fractography",
-          heroImage: "assets/rock-surface.jpg",
-          heroCaption: "Composite characterization view pairing cross-polarized petrographic microscopy with high-magnification fracture surface topography.",
-          secondaryVisuals: [
-            {
-              img: "assets/closed-terrarium.jpg",
-              caption: "Figure 1 — Comparing natural mineral porosity and weathering behavior across geological substrates."
-            },
-            {
-              img: makeArchitecturalDiagramSvg(
-                "Multiphase Rock Fracture & Surface Characterization",
-                "Connecting crystal lattice cleavage to macroscopic mechanical failure",
-                [
-                  { tag: "CRYSTALLOGRAPHIC CLEAVAGE & PHASES", text: "Quartz, feldspar & mafic grains exhibit distinct elastic moduli and preferred cleavage planes.", color: "#0D9488" },
-                  { tag: "FRACTURE PROPAGATION PATH", text: "Crack tip deflects along weak grain boundaries (intergranular) or cleaves across lattices (transgranular).", color: "#0284C7" },
-                  { tag: "QUANTITATIVE SURFACE TOPOGRAPHY", text: "Hackle marks, river patterns & roughness (Ra) reconstruct stress state at failure.", color: "#15803D" }
-                ]
-              ),
-              caption: "Figure 2 — Analytical framework linking mineral microstructure to surface roughness and crack propagation."
-            }
-          ],
-          coupling: {
-            materials: "Identifying mineral phase distributions, grain boundary cohesion, crystallographic cleavage planes, and chemical weathering alterations.",
-            mechanical: "Interpreting brittle fracture propagation (Griffith crack criteria), local stress concentrations at pores, and frictional shear roughness.",
-            electrical: "Utilizing optical birefringence under polarized light and electron-specimen interaction in microscopy to resolve micron-scale features."
-          },
-          why: [
-            "Every fracture surface is a physical recording of the stress state and microstructure at the exact moment a material failed. While textbook problems usually assume homogeneous, isotropic metals, natural rocks are complex multiphase aggregates.",
-            "Analyzing specific rocks and their surface features in class connected theoretical crystallography and fracture mechanics to messy, real-world heterogeneous materials."
-          ],
-          ramble: [
-            "When you examine a rock specimen under a microscope, you are looking at a composite material forged over geological time. Different mineral phases—like hard, conchoidally fracturing quartz versus feldspar with its distinct two-plane cleavage—sit right next to each other with completely different elastic moduli and thermal expansion coefficients.",
-            "By mapping surface features such as cleavage steps, river patterns, hackle marks, and grain pull-out craters, you can tell whether a crack propagated between weak grain boundaries (intergranular fracture) or punched straight through the crystal lattice (transgranular cleavage).",
-            "That ability to 'read' a surface and work backward to the forces and defects that caused it is a skill that transfers directly to failure analysis in engineered ceramics, composites, and metallic components."
-          ]
-        },
-        {
-          id: "custom-etched-pcb",
-          date: "2024",
-          category: "Mechatronics & Electronics",
-          tags: ["PCB Fabrication", "Chemical Etching", "Embedded Hardware"],
-          title: "Custom Ferric-Chloride Etched PCB & Hardware Controller",
-          summary: "Taking an electronic circuit from schematic capture to a hand-etched bare copper FR4 board: mastering mask transfer, isotropic etch kinetics, and single-layer routing.",
-          scope: "Etch Chemistry & Laminates × Topological Routing × Embedded Signal",
-          methods: "PCB Layout, Wet Chemical Etching, SMD/Through-Hole Assembly",
-          heroImage: "assets/custom-pcb.jpg",
-          heroCaption: "Custom single-sided ferric-chloride etched copper circuit board on FR4 fiberglass substrate under benchtop oscilloscope inspection.",
-          secondaryVisuals: [
-            {
-              img: "assets/robotics-prototype.jpg",
-              caption: "Figure 1 — Integrating custom-fabricated circuit boards into mechanical housings and actuator wiring harnesses."
-            },
-            {
-              img: makeArchitecturalDiagramSvg(
-                "Isotropic Wet Etching & Single-Layer Routing Constraints",
-                "How chemical mass transport shapes electrical trace geometry",
-                [
-                  { tag: "REDOX ETCHING KINETICS (FeCl3 + Cu)", text: "Isotropic dissolution etches laterally under the resist mask at ~1:1 ratio with vertical depth.", color: "#0D9488" },
-                  { tag: "SUBSTRATE & THERMAL PREP", text: "Mechanical oxide removal and uniform thermal resist transfer prevent pinholes and trace necking.", color: "#0284C7" },
-                  { tag: "TOPOLOGICAL SINGLE-LAYER ROUTING", text: "Wide copper pour return paths, 0-ohm bridge placement, and pad fillets for mechanical solder strength.", color: "#15803D" }
-                ]
-              ),
-              caption: "Figure 2 — Process flow and physical trade-offs in in-house chemical PCB fabrication."
-            }
-          ],
-          coupling: {
-            materials: "Controlling cupric/ferric redox etching kinetics, isotropic lateral undercut beneath the resist mask, and copper-to-FR4 epoxy adhesion.",
-            mechanical: "Designing pad fillets, mounting hole clearances, and strain relief to prevent copper trace delamination under vibration or soldering heat.",
-            electrical: "Solving single-layer planar routing topology without plated through-holes while maintaining low-impedance ground return paths."
-          },
-          why: [
-            "Ordering a four-layer PCB from an overseas fab house takes five minutes and teaches you very little about what a circuit board actually is. Etching your own PCB from raw copper-clad FR4 laminate forces you to experience electronics as a materials processing challenge.",
-            "I fabricated this board for a personal hardware project so I could go from a blank copper sheet to a working electronic controller entirely in-house."
-          ],
-          ramble: [
-            "When you etch your own circuit board, a trace on your screen stops being an abstract line and becomes a physical structure with chemical tolerances. Because wet ferric-chloride etching is isotropic, the solution eats sideways under the resist mask at nearly the same rate it etches down through the 35-micron copper foil.",
-            "If you don't agitate the bath properly, depleted etchant pools in narrow clearances and leaves conductive copper whiskers between adjacent pins; if you leave it in too long, fine signal traces neck down and spike in resistance. Even surface prep—mechanically scrubbing the copper oxide layer and degreasing before mask transfer—makes the difference between a crisp trace and a pitted open circuit.",
-            "Designing for home etching also makes you a much more thoughtful layout engineer: you learn to route cleanly on a single layer, widen pads for hand-drilling tolerances, and use copper pours wisely so you etch away only the copper you actually need to remove."
-          ]
-        },
-        {
-          id: "supply-chain-venture",
-          date: "2023 – 2024",
-          category: "Simulation & Strategy",
-          tags: ["Supply Chain & Logistics", "Venture Operations", "Manufacturing"],
-          title: "Supply Chain & Hardware Logistics Venture",
-          summary: "Founded a company to learn firsthand how raw material sourcing, supplier minimum order quantities (MOQs), freight lead times, and unit economics work outside the lab.",
-          scope: "Material Specs & QA × Manufacturing Lead Times × Unit Economics",
-          methods: "Vendor Sourcing, Inventory Buffer Modeling, Unit Cost Optimization",
-          heroImage: "assets/supply-chain.jpg",
-          heroCaption: "Hardware production batch inspection, anodized aluminum enclosures, protective packaging, and international freight documentation.",
-          secondaryVisuals: [
-            {
-              img: "assets/hero-studio.jpg",
-              caption: "Figure 1 — Evaluating prototype material finishes and dimensional tolerances against production vendor samples."
-            },
-            {
-              img: makeArchitecturalDiagramSvg(
-                "Hardware Supply Chain as a Dynamical System",
-                "Balancing MOQ unit economics against lead-time buffers and working capital",
-                [
-                  { tag: "UPSTREAM VENDOR & MATERIAL QA", text: "Material grade verification, surface finish tolerances, and tooling amortization across batch sizes.", color: "#0D9488" },
-                  { tag: "FREIGHT & LEAD-TIME BUFFERS", text: "Managing production queues, customs clearance delays, and safety stock reorder points.", color: "#0284C7" },
-                  { tag: "LANDED UNIT ECONOMICS", text: "Optimizing volumetric packaging weight, BOM consolidation, and cash conversion cycles.", color: "#15803D" }
-                ]
-              ),
-              caption: "Figure 2 — Systems view of supplier batch sizing, transit delays, and landed unit cost."
-            }
-          ],
-          coupling: {
-            materials: "Specifying raw material grades, surface finish standards, and batch-to-batch quality control criteria with external manufacturers.",
-            mechanical: "Simplifying part assemblies for manufacturability (DFM) and optimizing packaging dimensions to reduce volumetric freight costs.",
-            electrical: "Managing component lead times, bill-of-materials (BOM) consolidation, and demand forecasting."
-          },
-          why: [
-            "In university engineering classes, you're often handed a box of parts or told to assume any material in a handbook is available tomorrow in quantity one. In the real world, the best technical design on paper is dead on arrival if a key sub-component has a 16-week lead time or a 5,000-unit minimum order quantity.",
-            "I started a company specifically because I wanted to demystify supply chains, vendor negotiations, and business logistics by running them myself."
-          ],
-          ramble: [
-            "Running a real supply chain taught me to view business logistics as a dynamical system—complete with time delays (manufacturing queues and ocean/air freight), capacitances (inventory buffers and safety stock), and feedback loops (cash conversion cycles).",
-            "You quickly learn how small engineering choices ripple into massive logistical consequences. Specifying a non-standard fastener or a custom alloy temper might look great in CAD, but on the factory floor it introduces a new sub-vendor, inflates the minimum order quantity, and creates a single point of failure for the entire production run.",
-            "That experience permanently changed how I approach engineering design: whenever I select a material, sensor, or fabrication process now, I'm already thinking about how it scales, who supplies it, and how it gets to the end user."
-          ]
-        },
-        {
-          id: "closed-loop-terrarium",
-          date: "2022 · High School Research",
-          category: "Materials Science",
-          tags: ["Closed-Loop Ecosystem", "Porous Media", "Research Project"],
-          title: "Self-Sustaining Closed-Loop Terrarium",
-          summary: "High school research project engineering a sealed biological micro-climate with stratified porous substrates to study long-term hydrological and carbon equilibrium.",
-          scope: "Porous Substrate Chemistry × Vapor/Thermal Cycles × Biological Loop",
-          methods: "Substrate Stratification, Moisture & Gas Equilibrium, Long-Term Observation",
-          heroImage: "assets/closed-terrarium.jpg",
-          heroCaption: "Sealed borosilicate glass research terrarium with stratified volcanic pumice, activated carbon filtration, and condensation feedback.",
-          secondaryVisuals: [
-            {
-              img: "assets/rock-surface.jpg",
-              caption: "Figure 1 — Porous mineral aggregate and capillary drainage characterization used in the substrate base layer."
-            },
-            {
-              img: makeArchitecturalDiagramSvg(
-                "Closed-Volume Hydrological & Carbon Mass Balance",
-                "Multi-layer substrate engineering for zero-maintenance biological equilibrium",
-                [
-                  { tag: "TRANSPIRATION & CONDENSATION LOOP", text: "Solar/LED thermal input drives leaf transpiration; glass wall nucleation returns distilled water.", color: "#0284C7" },
-                  { tag: "ACTIVATED CARBON ADSORPTION LAYER", text: "High-surface-area microporous carbon adsorbs organic volatiles and prevents anaerobic souring.", color: "#0D9488" },
-                  { tag: "VOLCANIC PUMICE DRAINAGE RESERVOIR", text: "Coarse mineral porosity isolates root zone from standing water while maintaining vapor pressure.", color: "#15803D" }
-                ]
-              ),
-              caption: "Figure 2 — Stratified substrate architecture and closed-loop mass transfer cycles."
-            }
-          ],
-          coupling: {
-            materials: "Using high-surface-area activated carbon for volatile adsorption and porous volcanic rock to control capillary water retention.",
-            mechanical: "Balancing diurnal thermal convection, glass-wall condensation nucleation, and gravity drainage across distinct substrate horizons.",
-            electrical: "Monitoring radiative light energy input and tracking internal temperature and relative humidity stability over months."
-          },
-          why: [
-            "This high school research project was my first real introduction to systems thinking. When you seal a glass vessel, there is no 'away'—every milliliter of water and every milligram of carbon and nitrogen has to cycle continuously without drowning the roots or starving the biology.",
-            "I wanted to engineer a multi-layer substrate system that could sustain a living plant and microbial community indefinitely with zero external watering."
-          ],
-          ramble: [
-            "At first glance, a terrarium looks like plants in a jar, but keeping a sealed ecosystem alive long-term is actually a mass-transport and materials problem. If the bottom drainage layer has the wrong pore-size distribution, capillary wicking pulls water back up into the soil matrix, suffocating the roots and triggering anaerobic bacteria that crash the whole system.",
-            "To solve that, I designed a stratified four-layer foundation: coarse volcanic gravel at the base to act as a non-wicking water table, a fine mesh barrier to prevent soil migration, a layer of activated charcoal to adsorb organic breakdown products, and a moisture-retentive humus layer on top.",
-            "Watching daytime leaf transpiration condense on the cool glass walls and rain back down into the porous rock reservoir every evening was the spark that got me hooked on closed-loop systems—and eventually led me to mechatronics and materials engineering."
-          ]
-        }
-      ]
-    };
-
-    let currentRoute = 'home';
-    let currentWorkFilter = 'all';
-    let activeProjectId = portfolioData.projects[0].id;
-
-    // =========================================================================
-    // RENDER FUNCTIONS
-    // =========================================================================
-    function renderGlobalIdentity() {
-      document.getElementById('navOwnerName').textContent = portfolioData.ownerName;
-      document.getElementById('footerOwnerName').textContent = portfolioData.ownerName;
-      document.getElementById('homeHeroHeadline').innerHTML = portfolioData.heroHeadline;
-      document.getElementById('homeHeroSubtext').textContent = portfolioData.heroSubtext;
-      document.getElementById('contactEmailText').textContent = portfolioData.ownerEmail;
-      document.getElementById('mailtoLinkBtn').href = 'mailto:' + portfolioData.ownerEmail;
-    }
-
-    function renderHomeLatestWork() {
-      const container = document.getElementById('homeLatestGrid');
-      if (!container) return;
-      // Show top 4 most recent projects in reverse-chronological order
-      const latestFour = portfolioData.projects.slice(0, 4);
-      container.innerHTML = latestFour.map(p => `
-        <article data-open-project="${p.id}" class="editorial-card rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Card 1 -->
+        <a href="projects/materials-characterization-lapis.html" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
           <div>
             <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
-              <img src="${p.heroImage}" alt="${p.title}" class="w-full h-full object-cover" />
+              <img src="assets/lapis-microstructure.jpg" alt="Materials Characterization & Morphological Analysis" class="w-full h-full object-cover" />
               <div class="absolute top-3.5 left-3.5">
-                <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink backdrop-blur-xs shadow-2xs">
-                  ${p.date}
-                </span>
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2026</span>
               </div>
             </div>
             <div class="p-6 sm:p-7 space-y-2.5">
               <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
-                <span>${p.category}</span>
-                <span>·</span>
-                <span class="text-muted">${p.tags[0]}</span>
+                <span>Materials Science</span><span>·</span><span class="text-muted">Materials Characterization</span>
               </div>
               <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
-                ${p.title}
+                Materials Characterization &amp; Morphological Analysis
               </h3>
               <p class="text-sm text-muted leading-relaxed">
-                ${p.summary}
+                Characterizing multi-phase crystal morphology, phase-boundary isolation, and microstructural fracture mechanisms in lapis lazuli across powdered, polished, and fractured specimens using XRD, SEM, and optical microscopy.
               </p>
             </div>
           </div>
           <div class="px-6 sm:px-7 py-4 bg-surface/60 border-t border-borderlight flex items-center justify-between text-xs font-medium text-ink">
             <span>Read Case Study</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4 text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-muted group-hover:text-accent transition-transform"></i>
           </div>
-        </article>
-      `).join('');
-    }
+        </a>
 
-    function renderWorkArchive() {
-      const list = document.getElementById('workArchiveList');
-      if (!list) return;
-
-      const filtered = portfolioData.projects.filter(p => {
-        if (currentWorkFilter === 'all') return true;
-        return p.category === currentWorkFilter;
-      });
-
-      list.innerHTML = filtered.map((p, index) => `
-        <article data-open-project="${p.id}" class="editorial-card rounded-2xl overflow-hidden cursor-pointer grid grid-cols-1 lg:grid-cols-12 group">
-          <div class="lg:col-span-5 aspect-[16/10] lg:aspect-auto bg-subtle img-zoom-container relative min-h-[240px]">
-            <img src="${p.heroImage}" alt="${p.title}" class="w-full h-full object-cover" />
-          </div>
-          <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
-            <div class="space-y-3">
-              <div class="flex flex-wrap items-center justify-between gap-2">
-                <span class="text-xs font-semibold uppercase tracking-wider text-accent">${p.date} · ${p.category}</span>
-                <span class="text-xs text-muted">0${index + 1} / 0${filtered.length}</span>
+        <!-- Card 2 -->
+        <a href="projects/ml-physical-systems.html" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
+              <img src="assets/ml-materials.jpg" alt="Machine Learning for Physical & Materials Systems" class="w-full h-full object-cover" />
+              <div class="absolute top-3.5 left-3.5">
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2026</span>
               </div>
-              <h2 class="text-xl sm:text-2xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
-                ${p.title}
-              </h2>
-              <p class="text-sm sm:text-base text-muted leading-relaxed">
-                ${p.summary}
+            </div>
+            <div class="p-6 sm:p-7 space-y-2.5">
+              <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
+                <span>Simulation &amp; Strategy</span><span>·</span><span class="text-muted">Machine Learning</span>
+              </div>
+              <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Machine Learning for Physical &amp; Materials Systems
+              </h3>
+              <p class="text-sm text-muted leading-relaxed">
+                Building physics-informed machine learning pipelines and surrogate models to predict material properties and aerodynamic response surfaces.
               </p>
-              <div class="flex flex-wrap gap-1.5 pt-1">
-                ${p.tags.map(t => `<span class="px-2.5 py-1 rounded-md text-xs bg-subtle text-charcoal">${t}</span>`).join('')}
+            </div>
+          </div>
+          <div class="px-6 sm:px-7 py-4 bg-surface/60 border-t border-borderlight flex items-center justify-between text-xs font-medium text-ink">
+            <span>Read Case Study</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-muted group-hover:text-accent transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="projects/robotics-mechatronics.html" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
+              <img src="assets/robotics-prototype.jpg" alt="Robotics & Mechatronic Actuation Prototypes" class="w-full h-full object-cover" />
+              <div class="absolute top-3.5 left-3.5">
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2025 – 2026</span>
               </div>
             </div>
-
-            <div class="pt-4 border-t border-borderlight flex items-center justify-between text-xs sm:text-sm font-medium text-ink">
-              <span class="text-muted text-xs">Scope: <strong class="text-charcoal font-medium">${p.scope}</strong></span>
-              <span class="inline-flex items-center gap-1.5 text-accent group-hover:translate-x-1 transition-transform">
-                <span>Open Project Page</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </span>
+            <div class="p-6 sm:p-7 space-y-2.5">
+              <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
+                <span>Mechatronics &amp; Electronics</span><span>·</span><span class="text-muted">Robotics</span>
+              </div>
+              <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Robotics &amp; Mechatronic Actuation Prototypes
+              </h3>
+              <p class="text-sm text-muted leading-relaxed">
+                Designing multi-axis robotic mechanisms where structural link stiffness, drivetrain backlash, sensor feedback, and embedded control loops meet.
+              </p>
             </div>
           </div>
-        </article>
-      `).join('');
-    }
-
-    function renderProjectDetailPage(projectId) {
-      const idx = portfolioData.projects.findIndex(p => p.id === projectId);
-      const proj = portfolioData.projects[idx >= 0 ? idx : 0];
-      const realIdx = idx >= 0 ? idx : 0;
-      activeProjectId = proj.id;
-
-      document.getElementById('projDetailChronoBadge').textContent = `${proj.date} · Project 0${realIdx + 1} of 0${portfolioData.projects.length}`;
-      document.getElementById('projDetailTitle').textContent = proj.title;
-      document.getElementById('projDetailSubtitle').textContent = proj.summary;
-      document.getElementById('projDetailHeroImg').src = proj.heroImage;
-      document.getElementById('projDetailHeroImg').alt = proj.title;
-      document.getElementById('projDetailHeroCaption').textContent = proj.heroCaption;
-
-      document.getElementById('projDetailTags').innerHTML = proj.tags.map(t =>
-        `<span class="px-3 py-1 rounded-full text-xs font-medium bg-subtle text-charcoal border border-borderlight">${t}</span>`
-      ).join('');
-
-      document.getElementById('projMetaDate').textContent = proj.date;
-      document.getElementById('projMetaCategory').textContent = proj.category;
-      document.getElementById('projMetaScope').textContent = proj.scope;
-      document.getElementById('projMetaMethods').textContent = proj.methods;
-
-      // Render Why / Context paragraphs
-      const whyArr = Array.isArray(proj.why) ? proj.why : [proj.why];
-      document.getElementById('projDetailWhy').innerHTML = whyArr.map(para => `<p>${para}</p>`).join('');
-
-      // Render Coupling
-      document.getElementById('projCouplingMat').textContent = proj.coupling.materials;
-      document.getElementById('projCouplingMech').textContent = proj.coupling.mechanical;
-      document.getElementById('projCouplingElec').textContent = proj.coupling.electrical;
-
-      // Render Secondary Visuals Gallery
-      const gal = document.getElementById('projDetailGallery');
-      gal.innerHTML = (proj.secondaryVisuals || []).map(v => `
-        <figure class="rounded-2xl overflow-hidden border border-borderlight bg-paper flex flex-col justify-between">
-          <div class="aspect-[16/10] w-full bg-subtle overflow-hidden img-zoom-trigger">
-            <img src="${v.img}" alt="${v.caption}" class="w-full h-full object-cover" />
+          <div class="px-6 sm:px-7 py-4 bg-surface/60 border-t border-borderlight flex items-center justify-between text-xs font-medium text-ink">
+            <span>Read Case Study</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-muted group-hover:text-accent transition-transform"></i>
           </div>
-          <figcaption class="p-4 text-xs text-muted leading-relaxed bg-paper border-t border-borderlight">
-            ${v.caption}
-          </figcaption>
-        </figure>
-      `).join('');
+        </a>
 
-      // Render Long-Form Deep Dive / Ramble
-      const rambleArr = Array.isArray(proj.ramble) ? proj.ramble : String(proj.ramble).split(/\n\s*\n/);
-      document.getElementById('projDetailRamble').innerHTML = rambleArr.map(para => `<p>${para}</p>`).join('');
+        <!-- Card 4 -->
+        <a href="projects/micro-aircraft.html" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
+              <img src="assets/micro-aircraft.jpg" alt="Micro-Class Competition Aircraft" class="w-full h-full object-cover" />
+              <div class="absolute top-3.5 left-3.5">
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2025</span>
+              </div>
+            </div>
+            <div class="p-6 sm:p-7 space-y-2.5">
+              <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
+                <span>Mechanical &amp; Aero</span><span>·</span><span class="text-muted">Aerospace Design Team</span>
+              </div>
+              <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Micro-Class Competition Aircraft — Aero Design Team
+              </h3>
+              <p class="text-sm text-muted leading-relaxed">
+                Designing and fabricating ultralight competition RC aircraft where balsa grain anisotropy, carbon-fiber spars, and micro-avionics fight for every gram of payload.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 sm:px-7 py-4 bg-surface/60 border-t border-borderlight flex items-center justify-between text-xs font-medium text-ink">
+            <span>Read Case Study</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-muted group-hover:text-accent transition-transform"></i>
+          </div>
+        </a>
+      </div>
+    </section>
 
-      // Wire Previous / Next Project Navigation
-      const prevBtn = document.getElementById('prevProjectBtn');
-      const nextBtn = document.getElementById('nextProjectBtn');
+    <!-- Skills & Capabilities Section -->
+    <section class="bg-paper border-y border-borderlight py-16">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mb-12">
+          <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">Capabilities</p>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">Skills &amp; Technical Focus</h2>
+          <p class="text-muted text-sm sm:text-base mt-2 leading-relaxed">
+            Materials, mechanics, and electronics directly impact each other, and I focus on how they constrain and enable one another across the full lifecycle of a physical product.
+          </p>
+        </div>
 
-      if (realIdx > 0) {
-        const newerProj = portfolioData.projects[realIdx - 1];
-        prevBtn.classList.remove('opacity-40', 'pointer-events-none');
-        document.getElementById('prevProjectTitle').textContent = `${newerProj.title} (${newerProj.date})`;
-        prevBtn.onclick = () => navigateToProject(newerProj.id);
-      } else {
-        prevBtn.classList.add('opacity-40', 'pointer-events-none');
-        document.getElementById('prevProjectTitle').textContent = 'Newest Project in Archive';
-        prevBtn.onclick = null;
-      }
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-ink">Materials Science</h3>
+              <p class="text-xs text-muted mt-1 leading-relaxed">Microstructure-property relationships, fracture analysis, and chemical processing.</p>
+            </div>
+            <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Rock &amp; Mineral Surface Characterization</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Composite Layups (Carbon / Balsa / FR4)</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Fractography &amp; Optical Microscopy</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Wet Chemical Copper Etching</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Porous Substrate &amp; Mass Transport</li>
+            </ul>
+          </div>
 
-      if (realIdx < portfolioData.projects.length - 1) {
-        const olderProj = portfolioData.projects[realIdx + 1];
-        nextBtn.classList.remove('opacity-40', 'pointer-events-none');
-        document.getElementById('nextProjectTitle').textContent = `${olderProj.title} (${olderProj.date})`;
-        nextBtn.onclick = () => navigateToProject(olderProj.id);
-      } else {
-        nextBtn.classList.add('opacity-40', 'pointer-events-none');
-        document.getElementById('nextProjectTitle').textContent = 'Earliest Project in Archive';
-        nextBtn.onclick = null;
-      }
+          <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-slateaccent/10 text-slateaccent flex items-center justify-center">
+              <i data-lucide="wind" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-ink">Mechanical &amp; Aero</h3>
+              <p class="text-xs text-muted mt-1 leading-relaxed">Aerodynamic modeling, lightweight structural design, and multi-axis mechanisms.</p>
+            </div>
+            <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>VAWT Blade Aerodynamics &amp; CFD</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Micro-Class Competition Airframes</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Structural Stiffness &amp; Mass Budgeting</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Robotic Linkages &amp; Kinematics</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>CAD Prototyping &amp; Fabrication</li>
+            </ul>
+          </div>
 
-      if (window.lucide) window.lucide.createIcons();
-    }
+          <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-800/10 text-emerald-800 flex items-center justify-center">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-ink">Mechatronics &amp; Electronics</h3>
+              <p class="text-xs text-muted mt-1 leading-relaxed">Custom circuit fabrication, embedded sensing, and electromechanical actuation.</p>
+            </div>
+            <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Schematic Capture &amp; PCB Layout</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Custom PCB Etching &amp; Soldering</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Brushless Motor &amp; Servo Control</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Environmental &amp; Load Telemetry</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Closed-Loop Hardware Integration</li>
+            </ul>
+          </div>
 
-    // =========================================================================
-    // ROUTER & NAVIGATION CONTROLLER
-    // =========================================================================
-    function navigateToRoute(route, projectId) {
-      currentRoute = route;
-      const views = {
-        home: document.getElementById('view-home'),
-        work: document.getElementById('view-work'),
-        project: document.getElementById('view-project'),
-        about: document.getElementById('view-about')
-      };
+          <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-800/10 text-amber-800 flex items-center justify-center">
+              <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-ink">Simulation, ML &amp; Operations</h3>
+              <p class="text-xs text-muted mt-1 leading-relaxed">Physics-informed computation and real-world supply chain execution.</p>
+            </div>
+            <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Machine Learning for Physical Systems</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Numerical Modeling &amp; Parameter Sweeps</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Supply Chain Sourcing &amp; Vendor MOQs</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Freight, Lead-Time &amp; Unit Economics</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>End-to-End Project Documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      Object.entries(views).forEach(([key, el]) => {
-        if (!el) return;
-        if (key === route) {
-          el.classList.remove('hidden');
-          // Retrigger smooth page animation
-          el.classList.remove('page-transition');
-          void el.offsetWidth;
-          el.classList.add('page-transition');
-        } else {
-          el.classList.add('hidden');
-        }
-      });
+    <!-- Brief About Preview Banner -->
+    <section class="max-w-6xl mx-auto px-5 sm:px-8 py-16">
+      <div class="rounded-2xl bg-subtle/80 border border-borderlight p-7 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-3">
+          <p class="text-xs font-semibold uppercase tracking-widest text-accent">Background &amp; Motivation</p>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">
+            Who am I, what have I built, and where do I want to go?
+          </h2>
+          <p class="text-sm sm:text-base text-muted leading-relaxed">
+            What drives me isn't just solving isolated equations; it's the visual and structural elegance that emerges when complex physics interact in a complete system. Materials science gives you the invisible rules; mechatronics and dynamic modeling make them tangible. I want to build at that boundary.
+          </p>
+        </div>
+        <div class="lg:col-span-4 flex lg:justify-end">
+          <a href="about.html" class="px-6 py-3.5 rounded-full bg-ink text-paper text-sm font-medium hover:bg-charcoal transition-all flex items-center gap-2">
+            <span>Read My Full Story</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-      // Update active nav pill styling
-      document.querySelectorAll('.nav-link').forEach(btn => {
-        const r = btn.getAttribute('data-route');
-        const isActive = (r === route) || (route === 'project' && r === 'work');
-        if (isActive) {
-          btn.className = 'nav-link px-3.5 py-2 rounded-full text-sm font-medium transition-all text-ink bg-subtle';
-        } else {
-          btn.className = 'nav-link px-3.5 py-2 rounded-full text-sm font-medium transition-all text-muted hover:text-ink';
-        }
-      });
+  <div id="site-footer"></div>
 
-      if (route === 'project' && projectId) {
-        renderProjectDetailPage(projectId);
-      }
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      bindDynamicProjectLinks();
-      if (window.lucide) window.lucide.createIcons();
-    }
-
-    function navigateToProject(projectId) {
-      navigateToRoute('project', projectId);
-    }
-
-    function bindDynamicProjectLinks() {
-      document.querySelectorAll('[data-open-project]').forEach(el => {
-        el.onclick = () => {
-          const pid = el.getAttribute('data-open-project');
-          navigateToProject(pid);
-        };
-      });
-
-      document.querySelectorAll('[data-go-route]').forEach(el => {
-        el.onclick = () => {
-          const target = el.getAttribute('data-go-route');
-          navigateToRoute(target);
-        };
-      });
-    }
-
-    // =========================================================================
-    // INITIALIZE APPLICATION
-    // =========================================================================
-    window.addEventListener('DOMContentLoaded', () => {
-      renderGlobalIdentity();
-      renderHomeLatestWork();
-      renderWorkArchive();
-      renderProjectDetailPage(activeProjectId);
-      bindDynamicProjectLinks();
-
-      if (window.lucide) window.lucide.createIcons();
-
-      // Top nav links
-      document.querySelectorAll('.nav-link').forEach(btn => {
-        btn.addEventListener('click', () => {
-          navigateToRoute(btn.getAttribute('data-route'));
-        });
-      });
-
-      document.getElementById('brandLogoBtn').addEventListener('click', () => {
-        navigateToRoute('home');
-      });
-
-      document.getElementById('navContactBtn').addEventListener('click', () => {
-        const contactEl = document.getElementById('section-contact');
-        if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
-      });
-
-      // Work category filter pills
-      document.querySelectorAll('.work-filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          currentWorkFilter = btn.getAttribute('data-work-filter');
-          document.querySelectorAll('.work-filter-btn').forEach(b => {
-            b.className = 'work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-paper text-muted border border-borderlight hover:text-ink transition-all';
-          });
-          btn.className = 'work-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-ink text-paper transition-all';
-          renderWorkArchive();
-          bindDynamicProjectLinks();
-          if (window.lucide) window.lucide.createIcons();
-        });
-      });
-
-      // Copy email button with fallback
-      document.getElementById('copyEmailBtn').addEventListener('click', () => {
-        const email = portfolioData.ownerEmail;
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(email).catch(() => fallbackCopyText(email));
-        } else {
-          fallbackCopyText(email);
-        }
-      });
-
-      function fallbackCopyText(text) {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand('copy'); } catch (e) {}
-        document.body.removeChild(ta);
-      }
-    });
-  </script>
 </body>
 </html>
