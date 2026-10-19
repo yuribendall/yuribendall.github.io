@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Yuri</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="js/site.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { background-color: #F8FAFC; color: #0F172A; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .page-transition { animation: fadeSlideUp 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .prose-editorial p { margin-bottom: 1.25rem; line-height: 1.8; color: #1E293B; font-size: 1.04rem; }
+  </style>
+</head>
+<body data-page="about" class="min-h-screen flex flex-col selection:bg-accent/15 selection:text-accentdark">
+
+  <div id="site-header"></div>
+
+  <main class="flex-1 page-transition">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-20 space-y-16">
+      <section class="space-y-8">
+        <div class="max-w-3xl space-y-4">
+          <p class="text-xs font-semibold uppercase tracking-widest text-accent">About Me</p>
+          <h1 class="text-3xl sm:text-5xl font-semibold text-ink tracking-tight leading-tight">
+            A materials engineering student who thinks across the whole system.
+          </h1>
+          <p class="text-base sm:text-lg text-muted leading-relaxed">
+            No corporate buzzwords or generic resume templates—just a straightforward look at how I think about engineering, what I’ve built so far, and the kinds of problems I want to work on next.
+          </p>
+        </div>
+
+        <figure class="rounded-2xl overflow-hidden border border-borderlight bg-paper shadow-sm">
+          <div class="aspect-[21/9] w-full overflow-hidden bg-subtle">
+            <img src="assets/hero-studio.jpg" alt="Yuri's interdisciplinary engineering workspace" class="w-full h-full object-cover" />
+          </div>
+          <figcaption class="px-5 py-3 text-xs text-muted bg-paper border-t border-borderlight">
+            Bridging benchtop materials science, mechanical structures, custom electronics, and real-world logistics.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="space-y-10">
+        <!-- 01. Who I Am -->
+        <div class="p-7 sm:p-10 rounded-2xl bg-paper border border-borderlight grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-4 space-y-2">
+            <span class="text-xs font-semibold uppercase tracking-widest text-accent">01 · Identity</span>
+            <h2 class="text-2xl font-semibold text-ink">Who I Am</h2>
+            <p class="text-xs text-muted leading-relaxed">Why I combine mechatronics with a deeper foundation in materials science.</p>
+          </div>
+          <div class="lg:col-span-8 prose-editorial">
+            <p>Most engineering programs try to put you in a single lane early on: either you write software, or you route PCBs, or you design mechanical brackets in CAD, or you study phase diagrams and crystal lattices in a lab. I never really bought into that divide.</p>
+            <p>What initially pulled me in was <strong>mechatronics</strong>—the intersection where mechanical structures and electrical systems talk to each other. Studying <strong>materials engineering</strong> on top of that feels like unlocking the underlying rules for both. Every actuator, sensor, airframe, and circuit board is ultimately governed by what it is made of: how its microstructure handles cyclic fatigue, how heat moves through a substrate, or how chemical etching shapes a conductor.</p>
+            <p>I’m happiest when I can move fluidly across the whole stack—modeling a system’s physics on my laptop in the morning, fabricating or etching the hardware in the afternoon, and inspecting how it actually performed under a microscope at night.</p>
+          </div>
+        </div>
+
+        <!-- 02. What I've Done -->
+        <div class="p-7 sm:p-10 rounded-2xl bg-paper border border-borderlight grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-4 space-y-2">
+            <span class="text-xs font-semibold uppercase tracking-widest text-slateaccent">02 · Track Record</span>
+            <h2 class="text-2xl font-semibold text-ink">What I’ve Done</h2>
+            <p class="text-xs text-muted leading-relaxed">From closed-loop biological systems and hobby planes to custom PCBs, CFD simulations, and running a business.</p>
+          </div>
+          <div class="lg:col-span-8 prose-editorial">
+            <p>I learn best by picking projects that push me into unfamiliar territory. Back in high school, that meant building a <strong>self-sustaining closed-loop terrarium</strong> for a research project to see how water, gas exchange, and porous substrate layers find equilibrium without external intervention.</p>
+            <p>In university, it meant joining an aero design team to build <strong>micro-class competition aircraft</strong> where every gram of balsa, carbon spar, and polymer film has to earn its place in the air—while spending my coursework analyzing <strong>specific rocks and their fracture surface features</strong> to understand how real, heterogeneous materials fail.</p>
+            <p>Along the way, I’ve <strong>etched custom PCBs</strong> from bare copper laminate for personal hardware projects, built <strong>robotics prototypes</strong>, run extensive <strong>aerodynamic simulations for vertical axis wind turbine (VAWT) blade performance</strong>, explored <strong>machine learning</strong> for physical modeling, and even <strong>started a company</strong> specifically to learn how supply chains, vendor lead times, and business logistics work in the real world.</p>
+          </div>
+        </div>
+
+        <!-- 03. What I Want to Do & Why -->
+        <div class="p-7 sm:p-10 rounded-2xl bg-paper border border-borderlight grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-4 space-y-2">
+            <span class="text-xs font-semibold uppercase tracking-widest text-emerald-800">03 · Direction</span>
+            <h2 class="text-2xl font-semibold text-ink">What I Want to Do &amp; Why</h2>
+            <p class="text-xs text-muted leading-relaxed">Solving hard physical problems where materials, mechanics, electronics, and manufacturing meet.</p>
+          </div>
+          <div class="lg:col-span-8 prose-editorial">
+            <p>A lot of modern tech treats hardware as an afterthought—just a commodity box to run code in. The problems I care about most—clean energy systems, aerospace structures, robotics, and resilient manufacturing—are the exact opposite. You can’t fake the physics, and you can’t ignore the supply chain.</p>
+            <p><strong>What I want to do:</strong> Work on multidisciplinary R&amp;D and hardware engineering teams where I can bridge <strong>materials characterization, mechatronic prototyping, and numerical simulation</strong>.</p>
+            <p><strong>Why:</strong> Because the most interesting bottlenecks in hardware don’t happen neatly inside one department. They happen at the boundaries—where aerodynamic loads meet composite fatigue, where circuit layout meets chemical processing, and where a prototype in the lab has to survive real-world sourcing and production logistics.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline -->
+      <section class="space-y-6">
+        <div class="border-b border-borderlight pb-4 flex items-center justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest text-muted">Chronology</p>
+            <h2 class="text-2xl font-semibold text-ink mt-1">Education &amp; Project Timeline</h2>
+          </div>
+          <a href="work.html" class="text-sm font-medium text-accent hover:underline">View detailed case studies →</a>
+        </div>
+
+        <div class="space-y-4">
+          <div class="p-5 rounded-2xl bg-paper border border-borderlight flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="text-xs font-semibold text-accent">2026 · Current</span>
+              <h3 class="text-base font-semibold text-ink mt-0.5">Lapis Lazuli Characterization, VAWT Simulation &amp; ML Projects</h3>
+              <p class="text-xs sm:text-sm text-muted">SEM/XRD phase characterization, computational fluid dynamics, and physics-informed ML pipelines.</p>
+            </div>
+            <a href="projects/materials-characterization-lapis.html" class="text-xs font-medium text-ink hover:text-accent shrink-0 self-start sm:self-center">Read Case Study →</a>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-paper border border-borderlight flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="text-xs font-semibold text-muted">2025 – 2026</span>
+              <h3 class="text-base font-semibold text-ink mt-0.5">B.A.Sc. Materials Engineering Coursework, Aero Design Team &amp; Robotics</h3>
+              <p class="text-xs sm:text-sm text-muted">Micro-class competition RC aircraft fabrication, multi-axis robotics, and rock fracture surface characterization.</p>
+            </div>
+            <a href="projects/micro-aircraft.html" class="text-xs font-medium text-ink hover:text-accent shrink-0 self-start sm:self-center">Read Case Study →</a>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-paper border border-borderlight flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="text-xs font-semibold text-muted">2023 – 2024</span>
+              <h3 class="text-base font-semibold text-ink mt-0.5">Custom PCB Etching &amp; Supply Chain / Logistics Venture</h3>
+              <p class="text-xs sm:text-sm text-muted">Founded a hardware/product venture to learn supplier MOQs, freight logistics, and unit economics; fabricated custom etched PCBs.</p>
+            </div>
+            <a href="projects/supply-chain-venture.html" class="text-xs font-medium text-ink hover:text-accent shrink-0 self-start sm:self-center">Read Case Study →</a>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-paper border border-borderlight flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <span class="text-xs font-semibold text-muted">2022 · High School Research</span>
+              <h3 class="text-base font-semibold text-ink mt-0.5">Self-Sustaining Closed-Loop Terrarium</h3>
+              <p class="text-xs sm:text-sm text-muted">Designed a multi-layer porous substrate and sealed hydrological loop to study mass-transfer equilibrium.</p>
+            </div>
+            <a href="projects/closed-loop-terrarium.html" class="text-xs font-medium text-ink hover:text-accent shrink-0 self-start sm:self-center">Read Case Study →</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+</body>
+</html>
