@@ -24,9 +24,6 @@ if (window.tailwind) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Automatically detects if you are in root (''), 1 folder deep ('../'), or 2 folders deep ('../../')
-  const scriptTag = document.querySelector('script[src*="site.js"]');
-  const prefix = scriptTag ? scriptTag.getAttribute('src').replace(/js\/site\.js.*$/, '') : '';
   const activePage = document.body.getAttribute('data-page') || 'home';
   const email = 'ybendall2005@gmail.com';
 
@@ -35,25 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
       ? 'px-3.5 py-2 rounded-full text-sm font-medium transition-all text-ink bg-subtle'
       : 'px-3.5 py-2 rounded-full text-sm font-medium transition-all text-muted hover:text-ink';
 
-  // 1. Inject Shared Header
+  // 1. Inject Shared Header (Root-relative "/" links never stack!)
   const headerPlaceholder = document.getElementById('site-header');
   if (headerPlaceholder) {
     headerPlaceholder.outerHTML = `
       <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderlight">
         <div class="max-w-6xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-4">
-          <a href="${prefix}../" class="text-left group focus:outline-none flex items-center gap-3">
+          <a href="/" class="text-left group focus:outline-none flex items-center gap-3">
             <span class="text-xl font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">Yuri</span>
             <span class="hidden sm:inline-block text-xs text-muted font-normal border-l border-borderlight pl-3">
               Materials Engineering &amp; Mechatronic Systems
             </span>
           </a>
           <nav class="flex items-center gap-1 sm:gap-2">
-            <a href="${prefix}../" class="${navClass('home')}">Home</a>
-            <a href="${prefix}work/" class="${navClass('work')}">Work</a>
-            <a href="${prefix}about/" class="${navClass('about')}">About</a>
+            <a href="/" class="${navClass('home')}">Home</a>
+            <a href="/work" class="${navClass('work')}">Work</a>
+            <a href="/about" class="${navClass('about')}">About</a>
             <a href="#section-contact" class="px-3.5 py-2 rounded-full text-sm font-medium transition-all text-muted hover:text-ink">Contact</a>
             <div class="h-4 w-px bg-borderlight mx-1 hidden sm:block"></div>
-            <a href="${prefix}assets/CV.pdf" download class="p-2 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium border border-borderlight bg-paper text-charcoal hover:border-ink/40 transition-all flex items-center gap-1.5" title="Download CV">
+            <a href="/assets/CV.pdf" download class="p-2 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium border border-borderlight bg-paper text-charcoal hover:border-ink/40 transition-all flex items-center gap-1.5" title="Download CV">
               <i data-lucide="file-text" class="w-3.5 h-3.5 text-accent"></i>
               <span class="hidden md:inline">Download CV</span>
             </a>
@@ -104,9 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <span>Materials Engineering &amp; Mechatronic Systems Portfolio</span>
           </div>
           <div class="flex items-center gap-5">
-            <a href="${prefix}../" class="hover:text-ink transition-colors">Home</a>
-            <a href="${prefix}work/" class="hover:text-ink transition-colors">Work</a>
-            <a href="${prefix}about/" class="hover:text-ink transition-colors">About</a>
+            <a href="/" class="hover:text-ink transition-colors">Home</a>
+            <a href="/work" class="hover:text-ink transition-colors">Work</a>
+            <a href="/about" class="hover:text-ink transition-colors">About</a>
             <a href="https://linkedin.com/in/yuribendall" target="_blank" class="text-accent hover:underline font-medium">LinkedIn</a>
           </div>
         </div>
@@ -124,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Category Filter Buttons on work index (filters plain HTML cards)
+  // 4. Category Filter Buttons on work page
   const filterButtons = document.querySelectorAll('[data-work-filter]');
   const workCards = document.querySelectorAll('[data-project-category]');
   if (filterButtons.length && workCards.length) {
