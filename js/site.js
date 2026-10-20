@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
             </span>
           </a>
           <nav class="flex items-center gap-1 sm:gap-2">
-            <a href="${prefix}index.html" class="${navClass('home')}">Home</a>
-            <a href="work/" class="${navClass('work')}">Work</a>
-            <a href="${prefix}about.html" class="${navClass('about')}">About</a>
+            <a href="${prefix}" class="${navClass('home')}">Home</a>
+            <a href="${prefix}work/" class="${navClass('work')}">Work</a>
+            <a href="${prefix}about/" class="${navClass('about')}">About</a>
             <a href="#section-contact" class="px-3.5 py-2 rounded-full text-sm font-medium transition-all text-muted hover:text-ink">Contact</a>
             <div class="h-4 w-px bg-borderlight mx-1 hidden sm:block"></div>
             <a href="${prefix}assets/CV.pdf" download class="p-2 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium border border-borderlight bg-paper text-charcoal hover:border-ink/40 transition-all flex items-center gap-1.5" title="Download CV">
@@ -103,9 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <span>Materials Engineering &amp; Mechatronic Systems Portfolio</span>
           </div>
           <div class="flex items-center gap-5">
-            <a href="${prefix}index.html" class="hover:text-ink transition-colors">Home</a>
-            <a href="work/" class="hover:text-ink transition-colors">Work</a>
-            <a href="${prefix}about.html" class="hover:text-ink transition-colors">About</a>
+            <a href="${prefix}" class="hover:text-ink transition-colors">Home</a>
+            <a href="${prefix}work/" class="hover:text-ink transition-colors">Work</a>
+            <a href="${prefix}about/" class="hover:text-ink transition-colors">About</a>
             <a href="https://linkedin.com/in/yuribendall" target="_blank" class="text-accent hover:underline font-medium">LinkedIn</a>
           </div>
         </div>
