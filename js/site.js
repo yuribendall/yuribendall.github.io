@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </a>
           <nav class="flex items-center gap-1 sm:gap-2">
             <a href="${prefix}index.html" class="${navClass('home')}">Home</a>
-            <a href="${prefix}work.html" class="${navClass('work')}">Work</a>
+            <a href="work/" class="${navClass('work')}">Work</a>
             <a href="${prefix}about.html" class="${navClass('about')}">About</a>
             <a href="#section-contact" class="px-3.5 py-2 rounded-full text-sm font-medium transition-all text-muted hover:text-ink">Contact</a>
             <div class="h-4 w-px bg-borderlight mx-1 hidden sm:block"></div>
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="flex items-center gap-5">
             <a href="${prefix}index.html" class="hover:text-ink transition-colors">Home</a>
-            <a href="${prefix}work.html" class="hover:text-ink transition-colors">Work</a>
+            <a href="work/" class="hover:text-ink transition-colors">Work</a>
             <a href="${prefix}about.html" class="hover:text-ink transition-colors">About</a>
             <a href="https://linkedin.com/in/yuribendall" target="_blank" class="text-accent hover:underline font-medium">LinkedIn</a>
           </div>
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Category Filter Buttons on work.html (filters plain HTML cards)
+  // 4. Category Filter Buttons on work index (filters plain HTML cards)
   const filterButtons = document.querySelectorAll('[data-work-filter]');
   const workCards = document.querySelectorAll('[data-project-category]');
   if (filterButtons.length && workCards.length) {
