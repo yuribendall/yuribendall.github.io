@@ -24,8 +24,9 @@ if (window.tailwind) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const isSubfolder = window.location.pathname.includes('/projects/');
-  const prefix = isSubfolder ? '../' : '';
+  // Automatically detects if you are in root (''), 1 folder deep ('../'), or 2 folders deep ('../../')
+  const scriptTag = document.querySelector('script[src*="site.js"]');
+  const prefix = scriptTag ? scriptTag.getAttribute('src').replace(/js\/site\.js.*$/, '') : '';
   const activePage = document.body.getAttribute('data-page') || 'home';
   const email = 'ybendall2005@gmail.com';
 
