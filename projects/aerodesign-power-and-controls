@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Micro-Class Competition Aircraft | Yuri</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="/js/site.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { background-color: #F8FAFC; color: #0F172A; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .page-transition { animation: fadeSlideUp 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .editorial-card { background: #FFFFFF; border: 1px solid #E2E8F0; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease; }
+    .editorial-card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07); border-color: #CBD5E1; }
+    .img-zoom-trigger img { transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+    .img-zoom-trigger:hover img { transform: scale(1.035); }
+    .prose-editorial p { margin-bottom: 1.15rem; line-height: 1.8; color: #1E293B; font-size: 1.02rem; }
+  </style>
+</head>
+<body data-page="work" class="min-h-screen flex flex-col selection:bg-accent/15 selection:text-accentdark">
+
+  <div id="site-header"></div>
+
+  <main class="flex-1 page-transition">
+    <article class="max-w-6xl mx-auto px-5 sm:px-8 pt-8 sm:pt-12 pb-20">
+
+      <!-- Top Breadcrumb -->
+      <div class="flex items-center justify-between gap-4 mb-8">
+        <a href="/work" class="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-ink transition-colors">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back to Work Archive</span>
+        </a>
+        <span class="text-xs font-medium text-muted bg-subtle px-3 py-1 rounded-full border border-borderlight">
+          2025 · Project 04 of 08
+        </span>
+      </div>
+
+      <!-- DESIGN 2 FEATURE: Split Hero Header (Specs on Left, Framed Photo on Right) -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-14">
+        <div class="lg:col-span-6 space-y-5">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent">Mechanical &amp; Aero</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-subtle text-charcoal border border-borderlight">Composites &amp; Balsa</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-subtle text-charcoal border border-borderlight">Flight Systems</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink tracking-tight leading-[1.12]">
+            Micro-Class Competition Aircraft — Aero Design Team
+          </h1>
+
+          <p class="text-base sm:text-lg text-muted leading-relaxed">
+            Designing and fabricating ultralight competition RC aircraft where balsa grain anisotropy, carbon-fiber spars, and micro-avionics fight for every gram of payload.
+          </p>
+
+          <!-- Compact 2x2 Hardware Spec Grid -->
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <div class="p-4 rounded-xl bg-paper border border-borderlight">
+              <div class="text-xs text-muted">Primary Airframe</div>
+              <div class="text-sm font-semibold text-ink mt-0.5">C-Grain Balsa + Carbon Cap</div>
+            </div>
+            <div class="p-4 rounded-xl bg-paper border border-borderlight">
+              <div class="text-xs text-muted">Design Focus</div>
+              <div class="text-sm font-semibold text-ink mt-0.5">Payload Fraction &amp; Stiffness</div>
+            </div>
+            <div class="p-4 rounded-xl bg-paper border border-borderlight">
+              <div class="text-xs text-muted">Avionics Integration</div>
+              <div class="text-sm font-semibold text-ink mt-0.5">Zero-Ballast CG Co-Location</div>
+            </div>
+            <div class="p-4 rounded-xl bg-paper border border-borderlight">
+              <div class="text-xs text-muted">Methods</div>
+              <div class="text-sm font-semibold text-ink mt-0.5">Laser Cut, Layup, Flight Test</div>
+            </div>
+          </div>
+        </div>
+
+        <figure class="lg:col-span-6 rounded-2xl overflow-hidden border border-borderlight bg-paper shadow-sm">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-subtle img-zoom-trigger">
+            <img src="/assets/micro-aircraft.jpg" alt="Ultralight micro-class competition airframe" class="w-full h-full object-cover" />
+          </div>
+          <figcaption class="px-5 py-3 text-xs text-muted bg-paper border-t border-borderlight">
+            Laser-cut balsa ribs, pultruded carbon-fiber spar caps, and tensioned polymer film skin.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- DESIGN 2 FEATURE: Asymmetric 4-Photo Bento Visual Gallery -->
+      <section class="mb-16 space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-borderlight pb-3">
+          <div>
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-accent mb-1">01 · Hardware &amp; Fabrication Gallery</h2>
+            <h3 class="text-xl sm:text-2xl font-semibold text-ink">Airframe Layup, Structural Joints &amp; Avionics</h3>
+          </div>
+          <span class="text-xs text-muted">Swap in as many benchtop or flight photos as you want</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+          <!-- Large Wide Feature Image (8 cols) -->
+          <figure class="md:col-span-8 rounded-2xl overflow-hidden border border-borderlight bg-paper flex flex-col justify-between">
+            <div class="aspect-[16/10] w-full bg-subtle overflow-hidden img-zoom-trigger">
+              <img src="/assets/hero-studio.jpg" alt="Wing spar layup and adhesive budgeting" class="w-full h-full object-cover" />
+            </div>
+            <figcaption class="p-4 text-xs text-muted bg-paper border-t border-borderlight">
+              <strong>Figure 1 — Main Spar Layup:</strong> Pairing uniaxial carbon-fiber spar caps with tangent-cut balsa shear webs to resist root bending moments.
+            </figcaption>
+          </figure>
+
+          <!-- Tall / Square Detail Card (4 cols) -->
+          <figure class="md:col-span-4 rounded-2xl overflow-hidden border border-borderlight bg-paper flex flex-col justify-between">
+            <div class="aspect-[4/3] md:aspect-auto md:h-full w-full bg-subtle overflow-hidden img-zoom-trigger">
+              <img src="/assets/robotics-prototype.jpg" alt="Control linkage detail" class="w-full h-full object-cover" />
+            </div>
+            <figcaption class="p-4 text-xs text-muted bg-paper border-t border-borderlight">
+              <strong>Figure 2 — Control Linkages:</strong> Low-slop pushrod geometry to prevent aileron flutter.
+            </figcaption>
+          </figure>
+
+          <!-- Bottom Row: Two 6-col Detail Cards -->
+          <figure class="md:col-span-6 rounded-2xl overflow-hidden border border-borderlight bg-paper flex flex-col justify-between">
+            <div class="aspect-[16/9] w-full bg-subtle overflow-hidden img-zoom-trigger">
+              <img src="/assets/custom-pcb.jpg" alt="Avionics and bulkhead layout" class="w-full h-full object-cover" />
+            </div>
+            <figcaption class="p-4 text-xs text-muted bg-paper border-t border-borderlight">
+              <strong>Figure 3 — Bulkhead Avionics Integration:</strong> Positioning the LiPo cell, ESC, and micro-servos forward of the neutral point to hit CG without lead ballast.
+            </figcaption>
+          </figure>
+
+          <figure class="md:col-span-6 rounded-2xl overflow-hidden border border-borderlight bg-paper flex flex-col justify-between">
+            <div class="aspect-[16/9] w-full bg-subtle overflow-hidden img-zoom-trigger">
+              <img src="/assets/micro-aircraft.jpg" alt="Tensioned polymer wing skin" class="w-full h-full object-cover" />
+            </div>
+            <figcaption class="p-4 text-xs text-muted bg-paper border-t border-borderlight">
+              <strong>Figure 4 — Heat-Shrink Skin Tensioning:</strong> Transferring aerodynamic surface loads into the rib perimeter while maintaining torsional rigidity.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- DESIGN 2 FEATURE: Step-by-Step Build & Engineering Log -->
+      <section class="mb-16 space-y-6">
+        <div class="border-b border-borderlight pb-3">
+          <h2 class="text-xs font-semibold uppercase tracking-widest text-accent mb-1">02 · Engineering Breakdown</h2>
+          <h3 class="text-xl sm:text-2xl font-semibold text-ink">How Materials, Aerodynamics &amp; Avionics Intersected</h3>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Stage 1 -->
+          <div class="p-6 sm:p-8 rounded-2xl bg-paper border border-borderlight grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-4">
+              <span class="inline-block px-2.5 py-1 rounded-md text-xs font-semibold bg-accent/10 text-accent mb-2">Stage 01 · Materials</span>
+              <h4 class="text-lg font-semibold text-ink">Anisotropic Balsa &amp; Carbon Spar Architecture</h4>
+            </div>
+            <div class="lg:col-span-8 prose-editorial">
+              <p class="mb-0">
+                When you build an aircraft structure that weighs only a few hundred grams, materials science is everywhere. Two sheets of balsa wood that look identical at a glance can vary wildly in density and stiffness depending on how the timber was cut relative to the growth rings. Pairing a C-grain balsa shear web with pultruded carbon-fiber spar caps creates a miniature I-beam with an exceptional stiffness-to-weight ratio.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="p-6 sm:p-8 rounded-2xl bg-paper border border-borderlight grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-4">
+              <span class="inline-block px-2.5 py-1 rounded-md text-xs font-semibold bg-slateaccent/10 text-slateaccent mb-2">Stage 02 · Fabrication</span>
+              <h4 class="text-lg font-semibold text-ink">Adhesive Mass Budgeting &amp; Torsional Stiffness</h4>
+            </div>
+            <div class="lg:col-span-8 prose-editorial">
+              <p class="mb-0">
+                In micro-class aero competitions, empty weight scales non-linearly with stall speed and takeoff roll. Wicking too much cyanoacrylate or epoxy into a joint adds dead mass without increasing bond strength, because the surrounding wood fibers will tear long before the glue joint fails. Every bond line was metered to keep structural mass on budget.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="p-6 sm:p-8 rounded-2xl bg-paper border border-borderlight grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-4">
+              <span class="inline-block px-2.5 py-1 rounded-md text-xs font-semibold bg-emerald-800/10 text-emerald-800 mb-2">Stage 03 · Mechatronics</span>
+              <h4 class="text-lg font-semibold text-ink">Propulsion Sizing &amp; Zero-Ballast CG</h4>
+            </div>
+            <div class="lg:col-span-8 prose-editorial">
+              <p class="mb-0">
+                On the mechatronics side, we co-located the battery, receiver, and micro-servos with the main structural bulkhead so the aircraft balanced at its aerodynamic center of gravity naturally—eliminating the need for any non-structural nose weight.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Previous / Next Navigation -->
+      <nav class="border-t border-borderlight pt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="/projects/robotics-mechatronics" class="editorial-card p-5 rounded-2xl text-left flex flex-col justify-between group">
+          <span class="text-xs text-muted flex items-center gap-1 group-hover:text-accent transition-colors">
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+            <span>Newer Project</span>
+          </span>
+          <span class="text-base font-semibold text-ink mt-2 line-clamp-1">Robotics &amp; Mechatronic Actuation Prototypes (2025 – 2026)</span>
+        </a>
+
+        <a href="/projects/rock-surface-analysis" class="editorial-card p-5 rounded-2xl text-right flex flex-col justify-between items-end group">
+          <span class="text-xs text-muted flex items-center gap-1 group-hover:text-accent transition-colors">
+            <span>Older Project</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </span>
+          <span class="text-base font-semibold text-ink mt-2 line-clamp-1">Rock Surface Characterization &amp; Fracture Analysis (2025)</span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <div id="site-footer"></div>
+
+</body>
+</html>
