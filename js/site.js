@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     headerPlaceholder.outerHTML = `
       <header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-borderlight">
         <div class="max-w-6xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-4">
-          <a href="${prefix}index.html" class="text-left group focus:outline-none flex items-center gap-3">
+          <a href="${prefix}../" class="text-left group focus:outline-none flex items-center gap-3">
             <span class="text-xl font-semibold tracking-tight text-ink group-hover:text-accent transition-colors">Yuri</span>
             <span class="hidden sm:inline-block text-xs text-muted font-normal border-l border-borderlight pl-3">
               Materials Engineering &amp; Mechatronic Systems
