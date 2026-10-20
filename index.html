@@ -6,7 +6,7 @@
   <title>Yuri | Materials Engineering &amp; Mechatronic Systems</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
-  <script src="js/site.js"></script>
+  <script src="/js/site.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -30,21 +30,21 @@
     <section class="max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-16 pb-14">
       <div class="max-w-4xl space-y-5">
         <p class="text-xs font-semibold uppercase tracking-widest text-accent">
-          Materials Science × Mechanical Systems × Electronics
+          Materials Science × Electromechanical Hardware × Product Execution
         </p>
         <h1 class="text-3xl sm:text-5xl font-semibold text-ink tracking-tight leading-[1.15]">
           <span class="block">Studying materials at the microscale.</span>
           <span class="block">Building systems at the macroscale.</span>
         </h1>
         <p class="text-base sm:text-lg text-muted leading-relaxed font-normal">
-          I'm Yuri, a materials engineering student fascinated by mechatronics. I like building physical hardware, modeling the physics behind it, and figuring out how micro-level material choices make or break the dynamic systems they run on.
+          I'm Yuri, a materials engineering student at UBC who loves building physical hardware. From characterizing mineral phases under an SEM and etching PCBs in a hydrometallurgy lab to wiring competition aircraft and navigating overseas hardware manufacturing, I focus on how the whole physical system fits together.
         </p>
         <div class="pt-2 flex flex-wrap items-center gap-3">
-          <a href="work/" class="px-6 py-3 rounded-full bg-ink text-paper text-sm font-medium hover:bg-charcoal transition-all flex items-center gap-2">
+          <a href="/work" class="px-6 py-3 rounded-full bg-ink text-paper text-sm font-medium hover:bg-charcoal transition-all flex items-center gap-2">
             <span>Explore All Work</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
-          <a href="about.html" class="px-6 py-3 rounded-full bg-paper text-ink border border-borderlight text-sm font-medium hover:border-ink/40 transition-all">
+          <a href="/about" class="px-6 py-3 rounded-full bg-paper text-ink border border-borderlight text-sm font-medium hover:border-ink/40 transition-all">
             More About Me
           </a>
         </div>
@@ -53,8 +53,8 @@
       <!-- Wide Hero Banner -->
       <div class="mt-10 sm:mt-12 rounded-2xl overflow-hidden border border-borderlight bg-paper shadow-sm">
         <div class="relative aspect-[16/9] sm:aspect-[21/9] w-full overflow-hidden bg-subtle">
-          <img src="assets/hero-studio.jpg" alt="Engineering workbench with turbine airfoils, copper PCBs, and mineral samples" class="w-full h-full object-cover" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
+          <img src="/assets/hero-studio.jpg" alt="SEM surface morphology and materials characterization" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent"></div>
           <div class="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-8 sm:right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-white">
             <div class="max-w-xl">
               <span class="text-xs uppercase tracking-widest text-white/80 font-medium">SEM TO REVEAL SURFACE MORPHOLOGY</span>
@@ -62,7 +62,7 @@
                 Secondary Electrons and Backscattered Electrons revealed the 3 primary phases of our fractured Lapis Lazuli sample.
               </p>
             </div>
-            <a href="projects/materials-characterization-lapis.html" class="self-start sm:self-auto px-4 py-2 rounded-full bg-white/95 text-ink text-xs font-medium hover:bg-white transition-colors shrink-0 flex items-center gap-1.5 shadow-sm">
+            <a href="/projects/materials-characterization-lapis" class="self-start sm:self-auto px-4 py-2 rounded-full bg-white/95 text-ink text-xs font-medium hover:bg-white transition-colors shrink-0 flex items-center gap-1.5 shadow-sm">
               <span>Latest: Lapis Lazuli Characterization</span>
               <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
             </a>
@@ -71,38 +71,38 @@
       </div>
     </section>
 
-    <!-- Latest Work Section (4 Cards in Plain HTML) -->
+    <!-- Latest Work Section (4 Real Projects) -->
     <section class="max-w-6xl mx-auto px-5 sm:px-8 py-14 border-t border-borderlight">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
         <div>
           <p class="text-xs font-semibold uppercase tracking-widest text-muted mb-2">Selected Projects</p>
           <h2 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">Latest Work</h2>
         </div>
-        <a href="work/" class="self-start sm:self-auto text-sm font-medium text-accent hover:text-accentdark flex items-center gap-1.5 group">
-          <span>View full archive (8 projects)</span>
+        <a href="/work" class="self-start sm:self-auto text-sm font-medium text-accent hover:text-accentdark flex items-center gap-1.5 group">
+          <span>View full archive (5 projects)</span>
           <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
         </a>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Card 1 -->
-        <a href="projects/materials-characterization-lapis.html" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+        <!-- Card 1: Lapis Lazuli -->
+        <a href="/projects/materials-characterization-lapis" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
           <div>
             <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
-              <img src="assets/lapis-microstructure.jpg" alt="Materials Characterization & Morphological Analysis" class="w-full h-full object-cover" />
+              <img src="/assets/lapis-microstructure.jpg" alt="Materials Characterization & Morphological Analysis" class="w-full h-full object-cover" />
               <div class="absolute top-3.5 left-3.5">
                 <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2026</span>
               </div>
             </div>
             <div class="p-6 sm:p-7 space-y-2.5">
               <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
-                <span>Materials Science</span><span>·</span><span class="text-muted">Materials Characterization</span>
+                <span>Materials Science</span><span>·</span><span class="text-muted">SEM, XRD &amp; Optical</span>
               </div>
               <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
                 Materials Characterization &amp; Morphological Analysis
               </h3>
               <p class="text-sm text-muted leading-relaxed">
-                Characterizing multi-phase crystal morphology, phase-boundary isolation, and microstructural fracture mechanisms in lapis lazuli across powdered, polished, and fractured specimens using XRD, SEM, and optical microscopy.
+                Characterizing multi-phase crystal morphology, phase-boundary isolation, and brittle fracture mechanisms in lapis lazuli across powdered, polished, and fractured specimens.
               </p>
             </div>
           </div>
@@ -112,78 +112,78 @@
           </div>
         </a>
 
-        <!-- Card 2 -->
-        <a href="projects/ml-physical-systems.html" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+        <!-- Card 2: Hydromet PCB Etching -->
+        <a href="/projects/custom-etched-pcb" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
           <div>
             <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
-              <img src="assets/ml-materials.jpg" alt="Machine Learning for Physical & Materials Systems" class="w-full h-full object-cover" />
-              <div class="absolute top-3.5 left-3.5">
-                <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2026</span>
-              </div>
-            </div>
-            <div class="p-6 sm:p-7 space-y-2.5">
-              <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
-                <span>Simulation &amp; Strategy</span><span>·</span><span class="text-muted">Machine Learning</span>
-              </div>
-              <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
-                Machine Learning for Physical &amp; Materials Systems
-              </h3>
-              <p class="text-sm text-muted leading-relaxed">
-                Building physics-informed machine learning pipelines and surrogate models to predict material properties and aerodynamic response surfaces.
-              </p>
-            </div>
-          </div>
-          <div class="px-6 sm:px-7 py-4 bg-surface/60 border-t border-borderlight flex items-center justify-between text-xs font-medium text-ink">
-            <span>Read Case Study</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4 text-muted group-hover:text-accent transition-transform"></i>
-          </div>
-        </a>
-
-        <!-- Card 3 -->
-        <a href="projects/robotics-mechatronics.html" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
-          <div>
-            <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
-              <img src="assets/robotics-prototype.jpg" alt="Robotics & Mechatronic Actuation Prototypes" class="w-full h-full object-cover" />
-              <div class="absolute top-3.5 left-3.5">
-                <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2025 – 2026</span>
-              </div>
-            </div>
-            <div class="p-6 sm:p-7 space-y-2.5">
-              <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
-                <span>Mechatronics &amp; Electronics</span><span>·</span><span class="text-muted">Robotics</span>
-              </div>
-              <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
-                Robotics &amp; Mechatronic Actuation Prototypes
-              </h3>
-              <p class="text-sm text-muted leading-relaxed">
-                Designing multi-axis robotic mechanisms where structural link stiffness, drivetrain backlash, sensor feedback, and embedded control loops meet.
-              </p>
-            </div>
-          </div>
-          <div class="px-6 sm:px-7 py-4 bg-surface/60 border-t border-borderlight flex items-center justify-between text-xs font-medium text-ink">
-            <span>Read Case Study</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4 text-muted group-hover:text-accent transition-transform"></i>
-          </div>
-        </a>
-
-        <!-- Card 4 -->
-        <a href="projects/micro-aircraft.html" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
-          <div>
-            <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
-              <img src="assets/micro-aircraft.jpg" alt="Micro-Class Competition Aircraft" class="w-full h-full object-cover" />
+              <img src="/assets/custom-pcb.jpg" alt="Wet-Chemical PCB Fabrication in Hydrometallurgy Lab" class="w-full h-full object-cover" />
               <div class="absolute top-3.5 left-3.5">
                 <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2025</span>
               </div>
             </div>
             <div class="p-6 sm:p-7 space-y-2.5">
               <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
-                <span>Mechanical &amp; Aero</span><span>·</span><span class="text-muted">Aerospace Design Team</span>
+                <span>Mechatronics &amp; Materials</span><span>·</span><span class="text-muted">Chemical Etching</span>
               </div>
               <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
-                Micro-Class Competition Aircraft — Aero Design Team
+                Wet-Chemical PCB Fabrication in a Hydrometallurgy Lab
               </h3>
               <p class="text-sm text-muted leading-relaxed">
-                Designing and fabricating ultralight competition RC aircraft where balsa grain anisotropy, carbon-fiber spars, and micro-avionics fight for every gram of payload.
+                Bridging circuit design and chemical processing in Dr. David Dixon's hydrometallurgy lab—taking bare copper-clad FR4 laminate through mask transfer and wet chemical etching.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 sm:px-7 py-4 bg-surface/60 border-t border-borderlight flex items-center justify-between text-xs font-medium text-ink">
+            <span>Read Case Study</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-muted group-hover:text-accent transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- Card 3: Hardware Venture -->
+        <a href="/projects/supply-chain-venture" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
+              <img src="/assets/supply-chain.jpg" alt="Hardware Import Venture: Sourcing, Compliance & QA" class="w-full h-full object-cover" />
+              <div class="absolute top-3.5 left-3.5">
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2024 – 2025</span>
+              </div>
+            </div>
+            <div class="p-6 sm:p-7 space-y-2.5">
+              <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
+                <span>Operations &amp; QA</span><span>·</span><span class="text-muted">DFM &amp; Compliance</span>
+              </div>
+              <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                Hardware Import Venture — Sourcing, Certification &amp; QA
+              </h3>
+              <p class="text-sm text-muted leading-relaxed">
+                Founded a hardware business importing from China to Canada—learning supplier MOQs, regulatory compliance, and why catching defects during beta testing means making tough calls.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 sm:px-7 py-4 bg-surface/60 border-t border-borderlight flex items-center justify-between text-xs font-medium text-ink">
+            <span>Read Case Study</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-muted group-hover:text-accent transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- Card 4: UBC Aero Design -->
+        <a href="/projects/micro-aircraft" class="editorial-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="aspect-[16/10] w-full bg-subtle img-zoom-container relative">
+              <img src="/assets/micro-aircraft.jpg" alt="UBC Aero Design — Power & Controls Lead" class="w-full h-full object-cover" />
+              <div class="absolute top-3.5 left-3.5">
+                <span class="px-3 py-1 rounded-full text-xs font-medium bg-paper/95 text-ink">2023 – 2024</span>
+              </div>
+            </div>
+            <div class="p-6 sm:p-7 space-y-2.5">
+              <div class="flex flex-wrap items-center gap-2 text-xs text-accent font-medium">
+                <span>Mechanical &amp; Aero</span><span>·</span><span class="text-muted">Power &amp; Controls Lead</span>
+              </div>
+              <h3 class="text-xl font-semibold text-ink group-hover:text-accent transition-colors leading-snug">
+                UBC Aero Design — Power &amp; Controls Lead (Micro-Class)
+              </h3>
+              <p class="text-sm text-muted leading-relaxed">
+                From wind-tunnel propulsion validation, custom battery packs, and full wire harness fabrication for SAE competition to leading subteam PCB design, prop simulations, and budgeting.
               </p>
             </div>
           </div>
@@ -202,7 +202,7 @@
           <p class="text-xs font-semibold uppercase tracking-widest text-accent mb-2">Capabilities</p>
           <h2 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">Skills &amp; Technical Focus</h2>
           <p class="text-muted text-sm sm:text-base mt-2 leading-relaxed">
-            Materials, mechanics, and electronics directly impact each other, and I focus on how they constrain and enable one another across the full lifecycle of a physical product.
+            Materials, mechanics, and electronics directly impact each other. I focus on how they constrain and enable one another across the full lifecycle of a physical product.
           </p>
         </div>
 
@@ -213,31 +213,14 @@
             </div>
             <div>
               <h3 class="text-base font-semibold text-ink">Materials Science</h3>
-              <p class="text-xs text-muted mt-1 leading-relaxed">Microstructure-property relationships, fracture analysis, and chemical processing.</p>
+              <p class="text-xs text-muted mt-1 leading-relaxed">Microstructure-property relationships, phase analysis, and chemical processing.</p>
             </div>
             <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Rock &amp; Mineral Surface Characterization</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Composite Layups (Carbon / Balsa / FR4)</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Fractography &amp; Optical Microscopy</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>SEM (SE / BSE) &amp; Optical Microscopy</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>X-Ray Diffraction (XRD) Phase ID</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Fractography &amp; Sample Polishing</li>
               <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Wet Chemical Copper Etching</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Porous Substrate &amp; Mass Transport</li>
-            </ul>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
-            <div class="w-10 h-10 rounded-xl bg-slateaccent/10 text-slateaccent flex items-center justify-center">
-              <i data-lucide="wind" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <h3 class="text-base font-semibold text-ink">Mechanical &amp; Aero</h3>
-              <p class="text-xs text-muted mt-1 leading-relaxed">Aerodynamic modeling, lightweight structural design, and multi-axis mechanisms.</p>
-            </div>
-            <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>VAWT Blade Aerodynamics &amp; CFD</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Micro-Class Competition Airframes</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Structural Stiffness &amp; Mass Budgeting</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Robotic Linkages &amp; Kinematics</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>CAD Prototyping &amp; Fabrication</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Composite &amp; Laminate Substrates</li>
             </ul>
           </div>
 
@@ -246,15 +229,32 @@
               <i data-lucide="cpu" class="w-5 h-5"></i>
             </div>
             <div>
-              <h3 class="text-base font-semibold text-ink">Mechatronics &amp; Electronics</h3>
-              <p class="text-xs text-muted mt-1 leading-relaxed">Custom circuit fabrication, embedded sensing, and electromechanical actuation.</p>
+              <h3 class="text-base font-semibold text-ink">Electronics &amp; Power</h3>
+              <p class="text-xs text-muted mt-1 leading-relaxed">Custom circuit fabrication, power harnesses, and electromechanical integration.</p>
             </div>
             <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Schematic Capture &amp; PCB Layout</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Custom PCB Etching &amp; Soldering</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Brushless Motor &amp; Servo Control</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Environmental &amp; Load Telemetry</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Closed-Loop Hardware Integration</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>PCB Layout &amp; Chemical Etching</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Custom Wire Harness Fabrication</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Battery Pack Assembly &amp; Soldering</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Brushless Propulsion &amp; Servo Control</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-700"></span>Environmental Sensing &amp; Automation</li>
+            </ul>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-surface border border-borderlight space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-slateaccent/10 text-slateaccent flex items-center justify-center">
+              <i data-lucide="wind" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-ink">Testing &amp; Fabrication</h3>
+              <p class="text-xs text-muted mt-1 leading-relaxed">Experimental validation, rapid prototyping, and flight-line troubleshooting.</p>
+            </div>
+            <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Wind-Tunnel Propulsion Testing</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Propeller &amp; Thrust Modeling</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>3D Printing &amp; Enclosure Design</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Micro-Class Competition Airframes</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slateaccent"></span>Benchtop Hardware Debugging</li>
             </ul>
           </div>
 
@@ -263,22 +263,22 @@
               <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
             </div>
             <div>
-              <h3 class="text-base font-semibold text-ink">Simulation, ML &amp; Operations</h3>
-              <p class="text-xs text-muted mt-1 leading-relaxed">Physics-informed computation and real-world supply chain execution.</p>
+              <h3 class="text-base font-semibold text-ink">Operations &amp; Leadership</h3>
+              <p class="text-xs text-muted mt-1 leading-relaxed">Real-world hardware sourcing, compliance, and cross-team coordination.</p>
             </div>
             <ul class="space-y-2 pt-2 border-t border-borderlight text-xs text-charcoal">
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Machine Learning for Physical Systems</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Numerical Modeling &amp; Parameter Sweeps</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Supply Chain Sourcing &amp; Vendor MOQs</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Freight, Lead-Time &amp; Unit Economics</li>
-              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>End-to-End Project Documentation</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Overseas Supplier Sourcing &amp; MOQs</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Product QA &amp; Certification Gatekeeping</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Subteam Budgeting &amp; Project Planning</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Cross-Disciplinary Team Leadership</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-700"></span>Pre-Launch Beta Testing &amp; Feedback</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Brief About Preview Banner -->
+    <!-- Background & Motivation Banner -->
     <section class="max-w-6xl mx-auto px-5 sm:px-8 py-16">
       <div class="rounded-2xl bg-subtle/80 border border-borderlight p-7 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-8 space-y-3">
@@ -291,7 +291,7 @@
           </p>
         </div>
         <div class="lg:col-span-4 flex lg:justify-end">
-          <a href="about.html" class="px-6 py-3.5 rounded-full bg-ink text-paper text-sm font-medium hover:bg-charcoal transition-all flex items-center gap-2">
+          <a href="/about" class="px-6 py-3.5 rounded-full bg-ink text-paper text-sm font-medium hover:bg-charcoal transition-all flex items-center gap-2">
             <span>Read My Full Story</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
