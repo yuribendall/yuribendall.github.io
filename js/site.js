@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="/about" class="${navClass('about')}">About</a>
             <a href="#section-contact" class="px-3.5 py-2 rounded-full text-sm font-medium transition-all text-muted hover:text-ink">Contact</a>
             <div class="h-4 w-px bg-borderlight mx-1 hidden sm:block"></div>
-            <a href="/assets/CV.pdf" download class="p-2 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium border border-borderlight bg-paper text-charcoal hover:border-ink/40 transition-all flex items-center gap-1.5" title="Download CV">
+            <a href="/assets/Yuri Bendall CV.pdf" download class="p-2 sm:px-3.5 sm:py-1.5 rounded-full text-xs font-medium border border-borderlight bg-paper text-charcoal hover:border-ink/40 transition-all flex items-center gap-1.5" title="Download CV">
               <i data-lucide="file-text" class="w-3.5 h-3.5 text-accent"></i>
               <span class="hidden md:inline">Download CV</span>
             </a>
